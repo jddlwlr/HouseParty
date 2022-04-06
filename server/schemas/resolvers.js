@@ -19,6 +19,11 @@ const resolvers = {
 
       return { token, user };
     },
+    addParty: async (parent, args) => {
+      const party = await Party.create(args);
+
+      return party;
+    },
   },
 };
 

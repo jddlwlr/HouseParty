@@ -1,40 +1,23 @@
-// const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
-// const { Schema } = mongoose;
-// const Order = require("./Party");
+const { Schema } = mongoose;
+const User = require("./User");
 
-// const partySchema = new Schema({
-//   username: {
-//     type: String,
-//     required: true,
-//     trim: true,
-//   },
-//   email: {
-//     type: String,
-//     required: true,
-//     unique: true,
-//   },
-//   password: {
-//     type: String,
-//     required: true,
-//     minlength: 5,
-//   },
-//   // parties: [Party.schema],
-// });
+const partySchema = new Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  users: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
+  //   rules: {
+  //     type: Schema.Types.ObjectId,
+  //     ref: "Rule"
+  //   },
+});
 
-// userSchema.pre("save", async function (next) {
-//   if (this.isNew || this.isModified("password")) {
-//     const saltRounds = 10;
-//     this.password = await bcrypt.hash(this.password, saltRounds);
-//   }
+const Party = mongoose.model("Party", partySchema);
 
-//   next();
-// });
-
-// userSchema.methods.isCorrectPassword = async function (password) {
-//   return await bcrypt.compare(password, this.password);
-// };
-
-// const User = mongoose.model("User", userSchema);
-
-// module.exports = User;
+module.exports = Party;
