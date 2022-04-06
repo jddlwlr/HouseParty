@@ -5,12 +5,7 @@ const bcrypt = require("bcrypt");
 const Order = require("./Party");
 
 const userSchema = new Schema({
-  firstName: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  lastName: {
+  username: {
     type: String,
     required: true,
     trim: true,
@@ -25,7 +20,7 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  parties: [Party.schema],
+  // parties: [Party.schema],
 });
 
 userSchema.pre("save", async function (next) {
