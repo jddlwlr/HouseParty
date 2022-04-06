@@ -31,7 +31,7 @@ const typeDefs = gql`
   type Query {
     parties: [Party]
     rules(party: ID): [Rule]
-    users: User
+    users: [User]
   }
 
   type Mutation {
