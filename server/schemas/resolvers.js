@@ -7,7 +7,15 @@ const resolvers = {
     parties: async () => {},
     users: async () => {},
     rules: async () => {},
-    chat: async () => {},
+    // chat: async () => {},
+  },
+  Mutation: {
+    addUser: async (parent, args) => {
+      const user = await User.create(args);
+      const token = signToken(user);
+
+      return { token, user };
+    },
   },
 };
 
