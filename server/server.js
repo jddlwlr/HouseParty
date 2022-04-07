@@ -3,6 +3,16 @@ const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
 const { authMiddleware } = require("./utils/auth");
 
+//socket.io connection. needing correct port paths to client to function
+const io = require("socket.io")(3002, {
+  cors: {
+    origin: ["http://localhost:3000"],
+  },
+});
+io.on("connection", (socket) => {
+  console.log(socket.id);
+});
+
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
 
