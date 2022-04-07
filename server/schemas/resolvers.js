@@ -8,7 +8,9 @@ const resolvers = {
       return await User.find();
     },
 
-    parties: async () => {},
+    parties: async (parent, args) => {
+      return await Party.find();
+    },
     rules: async () => {},
     // chat: async () => {},
   },
@@ -19,10 +21,37 @@ const resolvers = {
 
       return { token, user };
     },
-    addParty: async (parent, args) => {
-      const party = await Party.create(args);
+    addParty: async (parent, args, context) => {
+      if (context.user) {
+        const party = await Party.create(args);
+        // console.log(context);
+        await User.findByIdAndUpdate(context.user._id, {
+          $push: { parties: party },
+        });
 
-      return party;
+        return party;
+      }
+      throw new AuthenticationError("Not logged in");
+    },
+    //TO DO
+    // addRule: async (parent, args, context) => {};
+    // addUsers: async (parent, args, contect) => {};
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw new AuthenticationError("Incorrect credentials");
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError("Incorrect credentials");
+      }
+
+      const token = signToken(user);
+      console.log("you are logged in");
+      return { token, user };
     },
   },
 };
