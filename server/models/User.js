@@ -20,7 +20,7 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  // parties: [Party.schema],
+  parties: [Party.schema],
 });
 
 userSchema.pre("save", async function (next) {
