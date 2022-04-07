@@ -3,7 +3,7 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
   type Party {
     _id: ID
-    name: String
+    name: String!
     users: [User]
     rules: [Rule]
     startDate: String
@@ -31,12 +31,12 @@ const typeDefs = gql`
   type Query {
     parties: [Party]
     rules(party: ID): [Rule]
-    users: User
+    users: [User]
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
-    addParty(Party: ID): User
+    addParty(User: ID, name: String): Party
     addRule(Party: ID): Rule
     updateUser(username: String, email: String, password: String): User
     login(email: String!, password: String!): Auth

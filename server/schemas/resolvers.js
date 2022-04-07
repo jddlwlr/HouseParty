@@ -4,8 +4,11 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
+    users: async (parent, args) => {
+      return await User.find();
+    },
+
     parties: async () => {},
-    users: async () => {},
     rules: async () => {},
     // chat: async () => {},
   },
@@ -15,6 +18,11 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    addParty: async (parent, args) => {
+      const party = await Party.create(args);
+
+      return party;
     },
   },
 };
