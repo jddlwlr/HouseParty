@@ -12,6 +12,9 @@ const partySchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
+  creator: {
+    type: Schema.Types.ObjectId,
+  },
   //   rules: {
   //     type: Schema.Types.ObjectId,
   //     ref: "Rule"
