@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 const User = require("./User");
+const Rule = require("./Rule");
 
 const partySchema = new Schema({
   name: {
@@ -12,13 +13,12 @@ const partySchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
-  creator: {
-    type: Schema.Types.ObjectId,
-  },
-  //   rules: {
-  //     type: Schema.Types.ObjectId,
-  //     ref: "Rule"
-  //   },
+  rules: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Rule",
+    },
+  ],
 });
 
 const Party = mongoose.model("Party", partySchema);
