@@ -12,7 +12,7 @@ function Live() {
 
         <div>
           {users.map((user) => (
-            <div className="rules contents ">
+            <div className="rules participants ">
               <h1 className="ruleCard">{user.username}</h1>
             </div>
           ))}

@@ -15,14 +15,18 @@ function Party() {
           </p>
         </div>
 
-        <div>
-          {rules.map((rule) => (
-            <div className="rules contents ">
-              <button className="triggerBtn" onClick={alert}>
-                <h1 className="ruleCard">{rule.trigger}</h1>
-              </button>
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              {rules.map((rule) => (
+                <div className="rules contents row column ">
+                  <button className="triggerBtn" onClick={alert}>
+                    <h1 className="ruleCard">{rule.trigger}</h1>
+                  </button>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

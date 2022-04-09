@@ -22,8 +22,12 @@ function App() {
         </div>
         <div class="page-content">
           <Header className="navBarContainer" />
-          <Party class="partyContainer" />
-          <About class="aboutContainer" />
+          <div class="tasks-wrapper">
+            <div class="task">
+              <Party class="partyContainer" />
+            </div>
+            <About class="aboutContainer" />
+          </div>
         </div>
         <div class="right-bar">
           <div class="top-part">

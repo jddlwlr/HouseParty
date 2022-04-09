@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../images/party_foul.png";
 
 function Header() {
   return (
@@ -6,7 +7,7 @@ function Header() {
       <h1 className="header" id="partyFoul">
         Party Foul
       </h1>
-
+      <img src={logo} alt="logo" className="logo" />
       <br></br>
       <br></br>
       <nav>
