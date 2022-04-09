@@ -434,3 +434,30 @@ body {
   padding: 40px 20px 0 20px;
 
 }
+
+.right-bar {
+  width: 320px;
+  border-left: 1px solid #e3e7f7;
+  display: auto;
+  flex-direction: column;
+}
+.top-part {
+  padding: 30px;
+  @extend %flex; 
+  align-self: flex-end;
+}
+.right-content {
+  padding: 10px 40px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+#live {
+  align-items: center;
+  display: block;
+  margin: auto;
+  padding: auto;
+  text-align: center;
+  max-width: auto;
+  height: auto;
+}
