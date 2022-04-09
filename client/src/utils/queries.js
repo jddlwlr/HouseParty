@@ -9,3 +9,25 @@ export const QUERY_PROFILES = gql`
     }
   }
 `;
+
+
+export const QUERY_USER = gql`
+  {
+    user {
+      _id
+      lastName
+      orders {
+        _id
+        purchaseDate
+        products {
+          _id
+          name
+          description
+          price
+          quantity
+          image
+        }
+      }
+    }
+  }
+`;
