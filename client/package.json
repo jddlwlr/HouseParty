@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
+<<<<<<< HEAD
     "@apollo/client": "^3.5.8",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -14,6 +15,17 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4"
+=======
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^12.1.4",
+    "@testing-library/user-event": "^13.5.0",
+    "bootstrap": "^5.1.3",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "react-scripts": "5.0.0",
+    "socket.io-client": "^4.4.1",
+    "web-vitals": "^2.1.4"
+>>>>>>> 6dc2ddbfbca14fa8d7e3aae53f9ecd45e06e25d1
   },
   "scripts": {
     "start": "react-scripts start",

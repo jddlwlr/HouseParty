@@ -1,13 +1,13 @@
 import React from "react";
-import { rules } from "../../../rules";
-import partyName from "";
+import { rules } from "../rules";
+//import partyName from "";
 
 function Party() {
   return (
     <section>
-      <div className="container">
+      <div className="container" id="">
         <div>
-          <h2>{partyName}</h2>
+          <h2>House Party</h2>
           <p>
             {" "}
             If any of these events below happen, you will be alerted to take a
@@ -17,7 +17,7 @@ function Party() {
 
         <div>
           {rules.map((rule) => (
-            <div className="rules contents row column">
+            <div className="rules contents ">
               <button className="triggerBtn" onClick={alert}>
                 <h1 className="ruleCard">{rule.trigger}</h1>
               </button>
