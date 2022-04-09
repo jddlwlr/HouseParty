@@ -34,18 +34,6 @@ function Login(props) {
     <div className="container" id="container">
       <div className="form-container sign-up-container">
         <form onSubmit={handleFormSubmit}>
-          {/* <h1>Create Account</h1>
-          <div className="social-container">
-            <a href="#" className="social">
-              <i className="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" className="social">
-              <i className="fab fa-google-plus-g"></i>
-            </a>
-            <a href="#" className="social">
-              <i className="fab fa-linkedin-in"></i>
-            </a>
-          </div> */}
           <span>or use your email for registration</span>
           <input
             type="text"
@@ -74,17 +62,6 @@ function Login(props) {
       <div className="form-container sign-in-container">
         <form onSubmit={handleFormSubmit}>
           <h1>Sign in</h1>
-          {/* <div className="social-container">
-            <a href="#" className="social">
-              <i className="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" className="social">
-              <i className="fab fa-google-plus-g"></i>
-            </a>
-            <a href="#" className="social">
-              <i className="fab fa-linkedin-in"></i>
-            </a>
-          </div> */}
           <span>or use your account</span>
           <input
             type="email"
@@ -107,7 +84,7 @@ function Login(props) {
               </p>
             </div>
           ) : null}
-          {/* <a href="#">Forgot your password?</a> */}
+
           <button ahref="#profile">Sign In</button>
         </form>
       </div>

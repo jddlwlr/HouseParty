@@ -42,23 +42,23 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="App">
-          <div class="task-manager">
-            <div class="left-bar">
-              <div class="upper-part">
-                <div class="actions"></div>
+          <div className="task-manager">
+            <div className="left-bar">
+              <div className="upper-part">
+                <div className="actions"></div>
               </div>
-              <div class="left-content">
+              <div className="left-content">
                 <User className="userContainer" />
               </div>
             </div>
             <div class="page-content">
               <Header className="navBarContainer" />
-              <Party class="partyContainer" />
-              <About class="aboutContainer" />
+              <Party className="partyContainer" />
+              <About className="aboutContainer" />
             </div>
-            <div class="right-bar">
-              <div class="top-part">
-                <Live class="liveContainer" />
+            <div className="right-bar">
+              <div className="top-part">
+                <Live className="liveContainer" />
               </div>
             </div>
           </div>
