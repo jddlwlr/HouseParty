@@ -1,33 +1,34 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_PROFILES = gql`
-  query allProfiles {
-    profiles {
+export const QUERY_USER = gql`
+  query allUsers {
+    users {
+      _id
+      username
+      email
+      party
+    }
+  }
+`;
+
+
+
+export const QUERY_RULE = gql`
+  query allRules {
+    rule {
       _id
       name
-      skills
     }
   }
 `;
 
-
-export const QUERY_USER = gql`
-  {
-    user {
-      _id
-      lastName
-      orders {
-        _id
-        purchaseDate
-        products {
-          _id
-          name
-          description
-          price
-          quantity
-          image
-        }
-      }
-    }
+export const QUERY_PARTY = gql`
+  query allParty {
+    _id
+    name
+    users
+    rules
+    startDate
+    endDate
   }
-`;
+`
