@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_PROFILES = gql`
   query allProfiles {
@@ -10,12 +10,11 @@ export const QUERY_PROFILES = gql`
   }
 `;
 
-
 export const QUERY_USER = gql`
   {
     user {
       _id
-      lastName
+      username
       orders {
         _id
         purchaseDate
