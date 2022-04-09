@@ -32,12 +32,13 @@ const typeDefs = gql`
     parties: [Party]
     rules(party: ID): [Rule]
     users: [User]
+    party(_id: ID!): Party
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     addParty(name: String): Party
-    addRule(Party: ID): Rule
+    addRule(name: String, partyId: String): Rule
     updateUser(username: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
   }

@@ -1,5 +1,6 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Party, Rules } = require("../models");
+const { isConstValueNode } = require("graphql");
+const { User, Party, Rule } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -9,10 +10,16 @@ const resolvers = {
     },
 
     parties: async (parent, args) => {
-      return await Party.find();
+      return await Party.findById(args).populate("rules");
     },
-    rules: async () => {},
-    // chat: async () => {},
+    rules: async (parent, args) => {
+      return await Rule.find(args);
+    },
+    party: async (parent, { _id }) => {
+      const party = await Party.findById(_id).populate("rules");
+      return party;
+      // console.log({ ...party });
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -24,7 +31,7 @@ const resolvers = {
     addParty: async (parent, args, context) => {
       if (context.user) {
         const party = await Party.create(args);
-        // console.log(context);
+
         await User.findByIdAndUpdate(context.user._id, {
           $push: { parties: party },
         });
@@ -33,8 +40,15 @@ const resolvers = {
       }
       throw new AuthenticationError("Not logged in");
     },
-    //TO DO
-    // addRule: async (parent, args, context) => {};
+
+    addRule: async (parent, { name, partyId }) => {
+      const rule = await Rule.create({ name });
+
+      await Party.findByIdAndUpdate(partyId, {
+        $push: { rules: rule },
+      });
+      return rule;
+    },
     // addUsers: async (parent, args, contect) => {};
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
