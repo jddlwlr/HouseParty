@@ -55,11 +55,11 @@ body {
 
 #partyFoul {
 
-color:#FF4B2B;
+color:blueviolet;
 text-align: center;
 font-weight: bold;
-font-size: 50px;
-font-family: Georgia, 'Times New Roman', Times, serif;
+font-size: 60px;
+font-family: 'Sedgwick Ave Display', cursive;
 }
 
 /* navigation */
@@ -75,7 +75,7 @@ nav {
 }
 
 nav a {
-  color:#FF4B2B;
+  color:fuchsia;
   font-size: 15px;
   padding: 14px 20px;
   text-decoration: none;
@@ -84,8 +84,9 @@ nav a {
 }
 
 nav a:hover {
-  background-color: aqua;
-  color:#FF4B2B;
+  background-color: blueviolet;
+  color: white;
+  border-radius: 15px;
 }
 
 /*User Container*/
@@ -413,8 +414,8 @@ body {
   overflow: hidden;
 }
 .left-bar {
-  background-color: var(--bg-color);
-  width: 230px;
+ 
+  width: auto;
   border-right: 1px solid #e3e7f7;
   position: relative;
 }
@@ -451,6 +452,26 @@ body {
   overflow-y: auto;
   flex: 1;
 }
+.tasks-wrapper {
+  padding: 30px 0;
+  flex: 1;
+  overflow-y: auto;
+  height: 100%;
+  padding-right: 8px;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 16px;
+  padding-left: 30px;
+  font-size: 13px;
+  font-weight: 500;
+  align-content: center;
+  flex-direction: column;
+
+}
 
 #live {
   align-items: center;
@@ -461,3 +482,43 @@ body {
   max-width: auto;
   height: auto;
 }
+
+/* User Info --Left Panel */
+
+.username {
+font-size: 14px;
+font-family: Georgia, 'Times New Roman', Times, serif;
+color:#FF4B2B; 
+}
+
+.profilePic {
+  margin: auto;
+  max-width: 100px;
+  height: auto;
+}
+.item a {
+  text-decoration: none;
+  text-align: center;
+  align-items: center;
+  vertical-align: auto;
+}
+
+.item a::marker {
+display: none;
+}
+
+/* Party */
+
+.contents {
+ text-align: center;
+  padding: 25px;
+  margin: auto;
+
+ 
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+

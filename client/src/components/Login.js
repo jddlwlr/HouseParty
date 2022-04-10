@@ -85,6 +85,7 @@ function Login(props) {
             </div>
           ) : null}
 
+          <a href="#">Forgot your password?</a>
           <button ahref="#profile">Sign In</button>
         </form>
       </div>
