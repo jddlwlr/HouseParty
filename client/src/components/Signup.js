@@ -33,37 +33,16 @@ function Signup(props) {
 
   return (
     <div className="container" id="container">
-      <div className="form-container sign-up-container">
-        <form onSubmit={handleFormSubmit}>
-          <span>or use your email for registration</span>
-          <input
-            type="text"
-            username="name"
-            id="name"
-            placeholder="userame"
-            onChange={handleChange}
-          />
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Email"
-            onChange={handleChange}
-          />
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Password"
-            onChange={handleChange}
-          />
-          <button>Ssdf Up</button>
-        </form>
-      </div>
       <div className="form-container sign-in-container">
         <form onSubmit={handleFormSubmit}>
-          <h1>Sign in</h1>
-          <span>or use your account</span>
+          <h1>Sign Up</h1>
+          <input
+            type="username"
+            name="username"
+            id="username"
+            placeholder="username"
+            onChange={handleChange}
+          />
           <input
             type="email"
             name="email"
@@ -79,7 +58,7 @@ function Signup(props) {
             onChange={handleChange}
           />
 
-          <button ahref="#profile">Sign In</button>
+          <button ahref="#profile">Sign Up</button>
         </form>
       </div>
       <div className="overlay-container">
