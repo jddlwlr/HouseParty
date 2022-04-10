@@ -1,25 +1,26 @@
 import React, { useState } from "react";
 
 import { useMutation } from "@apollo/client";
-import { Link } from "react-router-dom";
-import { LOGIN } from "../utils/mutations";
+// import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
+import { ADD_USER } from "../utils/mutations";
 
-function Login(props) {
+function Signup(props) {
   const [formState, setFormState] = useState({ email: "", password: "" });
-  const [login, { error }] = useMutation(LOGIN);
+  const [addUser] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    try {
-      const mutationResponse = await login({
-        variables: { email: formState.email, password: formState.password },
-      });
-      const token = mutationResponse.data.login.token;
-      Auth.login(token);
-    } catch (e) {
-      console.log(e);
-    }
+    const mutationResponse = await addUser({
+      variables: {
+        email: formState.email,
+        password: formState.password,
+        username: formState.username,
+        lastName: formState.lastName,
+      },
+    });
+    const token = mutationResponse.data.addUser.token;
+    Auth.login(token);
   };
 
   const handleChange = (event) => {
@@ -37,9 +38,9 @@ function Login(props) {
           <span>or use your email for registration</span>
           <input
             type="text"
-            name="name"
+            username="name"
             id="name"
-            placeholder="Name"
+            placeholder="userame"
             onChange={handleChange}
           />
           <input
@@ -77,13 +78,6 @@ function Login(props) {
             placeholder="Password"
             onChange={handleChange}
           />
-          {error ? (
-            <div>
-              <p className="error-text">
-                The provided credentials are incorrect
-              </p>
-            </div>
-          ) : null}
 
           <button ahref="#profile">Sign In</button>
         </form>
@@ -100,13 +94,13 @@ function Login(props) {
             </button>
           </div>
           <div className="overlay-panel overlay-right">
-            <h1>Hello, Friend!</h1>
-            <p>Enter your personal details and start journey with us</p>
-            <Link to="/signup">
-              <button className="ghost" id="signUp">
-                Sign Up
-              </button>
-            </Link>
+            <h1>Drink with Friends</h1>
+            <p>
+              <li>Create your own party</li>
+              <li>Create your own rules</li>
+              <li>From anywhere in the world</li>
+              <li>With anyone ion the world</li>
+            </p>
           </div>
         </div>
       </div>
@@ -114,4 +108,4 @@ function Login(props) {
   );
 }
 
-export default Login;
+export default Signup;
