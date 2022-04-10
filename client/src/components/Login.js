@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { useMutation } from "@apollo/client";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations";
 import Auth from "../utils/auth";
 
@@ -56,7 +56,7 @@ function Login(props) {
             placeholder="Password"
             onChange={handleChange}
           />
-          <button>Sign Up</button>
+          <button>Ssdf Up</button>
         </form>
       </div>
       <div className="form-container sign-in-container">
@@ -85,7 +85,6 @@ function Login(props) {
             </div>
           ) : null}
 
-          <a href="#">Forgot your password?</a>
           <button ahref="#profile">Sign In</button>
         </form>
       </div>
@@ -103,9 +102,11 @@ function Login(props) {
           <div className="overlay-panel overlay-right">
             <h1>Hello, Friend!</h1>
             <p>Enter your personal details and start journey with us</p>
-            <button className="ghost" id="signUp">
-              Sign Up
-            </button>
+            <Link to="/signup">
+              <button className="ghost" id="signUp">
+                Sign Up
+              </button>
+            </Link>
           </div>
         </div>
       </div>
