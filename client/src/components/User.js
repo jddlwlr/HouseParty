@@ -10,7 +10,8 @@ import { Context } from "../utils/GlobalState";
 function User() {
   const [state, setState] = useContext(Context);
   const handleClick = () => {
-    setState("new");
+    setState("party", "new");
+    console.log(Context.party);
   };
 
   return (

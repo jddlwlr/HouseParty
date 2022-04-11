@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
+import { Context } from "../utils/GlobalState";
 
 import { ADD_PARTY } from "../utils/mutations";
 // import { QUERY_RULE, QUERY_MINE } from "../utils/queries";
@@ -60,6 +61,7 @@ const NewParty = (props) => {
 
   const [formState, setFormState] = useState({ name: "" });
   const [newParty, { error }] = useMutation(ADD_PARTY);
+  const [state, setState] = useContext(Context);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -67,8 +69,9 @@ const NewParty = (props) => {
       const mutationResponse = await newParty({
         variables: { name: formState.name },
       });
-      const partyId = mutationResponse.data.addParty._id;
-      console.log(partyId);
+      const partyNum = mutationResponse.data.addParty._id;
+      setState({ partyId: partyNum });
+      console.log(state.partyId);
     } catch (e) {
       console.log(e);
     }

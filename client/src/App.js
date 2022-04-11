@@ -19,6 +19,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NewParty from "./components/NewParty";
 import Store, { Context } from "./utils/GlobalState";
+import RuleForm from "./components/RuleForm";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -60,6 +61,7 @@ function App() {
               <div class="page-content">
                 <Header className="navBarContainer" />
                 {(Context.party = "new" ? <NewParty /> : <Party />)}
+                {(Context.party = "new" ? <RuleForm /> : <Party />)}
                 <About className="aboutContainer" />
               </div>
               <div className="right-bar">

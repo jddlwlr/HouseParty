@@ -1,61 +1,36 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
+import { Context } from "../utils/GlobalState";
 
-import { RULE } from "../utils/mutationstash";
-import { QUERY_RULE, QUERY_MINE } from "../utils/queries";
+import { ADD_RULE } from "../utils/mutations";
+// import { QUERY_RULE, QUERY_MINE } from "../utils/queries";
 
 import Auth from "../utils/auth";
 
 const RuleForm = () => {
-  const [ruleText, setRuleText] = useState("");
-
-  const [addRule, { error }] = useMutation(RULE, {
-    update(cache, { data: { addRule } }) {
-      try {
-        const { rules } = cache.readQuery({ query: QUERY_RULE });
-
-        cache.writeQuery({
-          query: QUERY_RULE,
-          data: { rules: [addRule, ...rules] },
-        });
-      } catch (e) {
-        console.error(e);
-      }
-
-      // need a me object to update cache with new rules
-
-      const { mine } = cache.readQuery({ query: QUERY_MINE });
-      cache.writeQuery({
-        query: QUERY_MINE,
-        data: { mine: { ...mine, rules: [...mine.rules, addRule] } },
-      });
-    },
-  });
+  const [formState, setFormState] = useState({ name: "", partyId: "" });
+  const [addRule, { error }] = useMutation(ADD_RULE);
+  const [state, setState] = useContext(Context);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+    console.log(state.partyId);
     try {
-      const { data } = await addRule({
-        variables: {
-          ruleText,
-        },
+      const mutationResponse = await addRule({
+        variables: { name: formState.name, partyId: state.partyId },
       });
-
-      setRuleText("");
-    } catch (err) {
-      console.err(err);
+    } catch (e) {
+      console.log(e);
     }
   };
 
   const handleChange = (event) => {
-    const { foul, value } = event.target;
-
-    if (foul === "ruleText" && value.length <= 200) {
-      setRuleText(value);
-      setLetterCount(value.length);
-    }
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
   };
 
   return (
@@ -70,9 +45,10 @@ const RuleForm = () => {
           >
             <div className="col-12 col-lg-9">
               <textarea
-                name="ruleText"
+                tpye="text"
+                name="name"
+                id="name"
                 placeholder="Enter your game foul..."
-                value={ruleText}
                 className="form-input w-100"
                 style={{ lineHeight: "1.5", resize: "vertical" }}
                 onChange={handleChange}
