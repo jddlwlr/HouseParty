@@ -15,8 +15,8 @@ import Party from "./components/Party";
 import User from "./components/User";
 import Live from "./components/Live";
 import Footer from "./components/Footer";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import NewParty from "./components/NewParty";
 import Store, { Context } from "./utils/GlobalState";
 
