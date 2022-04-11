@@ -1,10 +1,19 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
+import React, { useContext } from "react";
 //import username from "";
 import profile from "../images/profile.png";
+// import { Link } from "react-router-dom";
+// import Store from "../utils/GlobalState";
+import { Context } from "../utils/GlobalState";
+// import { from } from "@apollo/client";
 
 function User() {
+  const [state, setState] = useContext(Context);
+  const handleClick = () => {
+    setState("new");
+  };
+
   return (
     <section>
       {Auth.loggedIn() ? (
@@ -18,6 +27,9 @@ function User() {
               <ul className="action-list">
                 <li className="item">
                   <a href="#invites">My Invites</a>
+                </li>
+                <li className="item">
+                  <button onClick={handleClick}>New Party</button>
                 </li>
                 <li className="item">
                   <a href="#myParties">My Parties</a>
