@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const initalState = {
   party: "",
+  partyId: "",
 };
 
 export const Context = React.createContext();

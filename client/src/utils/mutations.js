@@ -35,6 +35,7 @@ export const ADD_PARTY = gql`
   mutation addParty($name: String) {
     addParty(name: $name) {
       name
+      _id
     }
   }
 `;

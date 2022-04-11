@@ -67,6 +67,8 @@ const NewParty = (props) => {
       const mutationResponse = await newParty({
         variables: { name: formState.name },
       });
+      const partyId = mutationResponse.data.addParty._id;
+      console.log(partyId);
     } catch (e) {
       console.log(e);
     }
@@ -82,8 +84,6 @@ const NewParty = (props) => {
 
   return (
     <div>
-      <h2>Please enter your trigger foul!</h2>
-
       {Auth.loggedIn() ? (
         <>
           <form
@@ -91,8 +91,7 @@ const NewParty = (props) => {
             onSubmit={handleFormSubmit}
           >
             <div className="col-12 col-lg-9">
-              <h1>Sign in</h1>
-              <span>or use your account</span>
+              <h1>Create a new Party</h1>
               <input
                 type="text"
                 name="name"
