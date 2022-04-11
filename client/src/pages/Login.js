@@ -56,7 +56,7 @@ function Login(props) {
             placeholder="Password"
             onChange={handleChange}
           />
-          <button>Ssdf Up</button>
+          <button>Sign Up</button>
         </form>
       </div>
       <div className="form-container sign-in-container">
