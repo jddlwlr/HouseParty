@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 
-import { ADD_RULE } from "..//";
+import { RULE } from "../utils/mutationstash";
 import { QUERY_RULE, QUERY_MINE } from "../utils/queries";
 
 import Auth from "../utils/auth";
@@ -10,7 +10,7 @@ import Auth from "../utils/auth";
 const RuleForm = () => {
   const [ruleText, setRuleText] = useState("");
 
-  const [addRule, { error }] = useMutation(ADD_RULE, {
+  const [addRule, { error }] = useMutation(RULE, {
     update(cache, { data: { addRule } }) {
       try {
         const { rules } = cache.readQuery({ query: QUERY_RULE });
@@ -60,7 +60,7 @@ const RuleForm = () => {
 
   return (
     <div>
-      <h2>Please type your trigger rule!</h2>
+      <h2>Please enter your trigger foul!</h2>
 
       {Auth.loggedIn() ? (
         <>
@@ -92,7 +92,7 @@ const RuleForm = () => {
         </>
       ) : (
         <p>
-          Please login to add your part foul trigger. You can{" "}
+          Please login to add your party foul trigger. You can{" "}
           <Link to="/signin">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
