@@ -21,3 +21,22 @@ export const LOGIN = gql`
     }
   }
 `;
+export const ADD_RULE = gql`
+  mutation addRule($name: String, $partyId: String) {
+    addRule(name: $name, partyId: $partyId) {
+      name
+      party {
+        name
+      }
+    }
+  }
+`;
+
+export const ADD_PARTY = gql`
+  mutation addParty($name: String) {
+    addParty(name: $name) {
+      name
+      _id
+    }
+  }
+`;

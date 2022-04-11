@@ -13,12 +13,7 @@ const partySchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
-  rules: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Rule",
-    },
-  ],
+  rules: [String],
 });
 
 const Party = mongoose.model("Party", partySchema);

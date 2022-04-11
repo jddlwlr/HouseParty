@@ -3,7 +3,6 @@ import Auth from "../utils/auth";
 import React, { useContext } from "react";
 //import username from "";
 import profile from "../images/profile.png";
-// import { Link } from "react-router-dom";
 // import Store from "../utils/GlobalState";
 import { Context } from "../utils/GlobalState";
 // import { from } from "@apollo/client";
@@ -11,7 +10,8 @@ import { Context } from "../utils/GlobalState";
 function User() {
   const [state, setState] = useContext(Context);
   const handleClick = () => {
-    setState("new");
+    setState("party", "new");
+    console.log(Context.party);
   };
 
   return (
@@ -50,7 +50,7 @@ function User() {
       ) : (
         <p>
           {" "}
-          You need to be logged in play! Please <Link to="/signin">
+          You need to be logged in play! Please <Link to="/login">
             login
           </Link>{" "}
           or <Link to="/signUp">signup.</Link>
