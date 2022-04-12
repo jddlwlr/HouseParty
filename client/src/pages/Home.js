@@ -13,8 +13,24 @@ const Home = () => {
 
   return (
     <main>
-      <div className="flex-row justify-center">
-        <div className="col-12 col-md-10 mb-3 p-3"></div>
+      <div className="App">
+        <div className="task-manager">
+          <div className="left-bar">
+            <div className="upper-part">
+              <div className="actions"></div>
+            </div>
+            <div className="left-content">
+              <User />
+            </div>
+          </div>
+          <div class="page-content">
+            <Party />
+          </div>
+          <div className="right-bar">
+            <Line />
+            <Live className="liveContainer" />
+          </div>
+        </div>
       </div>
     </main>
   );
