@@ -8,6 +8,10 @@ const ruleSchema = new Schema({
     type: String,
     required: true,
   },
+  party: {
+    type: Schema.Types.ObjectId,
+    ref: "Party",
+  },
 });
 
 const Rule = mongoose.model("Rule", ruleSchema);
