@@ -61,7 +61,7 @@ function App() {
               <div class="page-content">
                 <Header className="navBarContainer" />
                 {(Context.party = "new" ? <NewParty /> : <Party />)}
-                {(Context.party = "new" ? <RuleForm /> : <Party />)}
+                {/* {(Context.party = "new" ? <RuleForm /> : <Party />)} */}
                 <About className="aboutContainer" />
               </div>
               <div className="right-bar">

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 const initalState = {
   party: "",
   partyId: "",
+  userId: "",
 };
 
 export const Context = React.createContext();

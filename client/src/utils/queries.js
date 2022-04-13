@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const QUERY_USER = gql`
+export const QUERY_USERS = gql`
   query allUsers {
     users {
       _id
@@ -11,7 +11,15 @@ export const QUERY_USER = gql`
   }
 `;
 
-
+export const QUERY_USER = gql`
+  query User($id: ID!) {
+    user(_id: $id) {
+      parties {
+        name
+      }
+    }
+  }
+`;
 
 export const QUERY_RULE = gql`
   query allRules {
@@ -31,4 +39,4 @@ export const QUERY_PARTY = gql`
     startDate
     endDate
   }
-`
+`;

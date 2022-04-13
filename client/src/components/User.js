@@ -5,14 +5,37 @@ import React, { useContext } from "react";
 import profile from "../images/profile.png";
 // import Store from "../utils/GlobalState";
 import { Context } from "../utils/GlobalState";
+import { QUERY_USER } from "../utils/queries";
+import { useQuery } from "@apollo/client";
+import auth from "../utils/auth";
+// import { find, findById } from "../../../server/models/Rule";
+// import { assertValidSchema } from "graphql";
 // import { from } from "@apollo/client";
 
 function User() {
   const [state, setState] = useContext(Context);
+
+  const { loading, data } = useQuery(QUERY_USER, {
+    variables: { id: Auth.getProfile().data._id },
+  });
+
+  const partyList = data?.user.parties || [];
+  console.log(partyList);
+  const listParties = partyList.map((party) => <li>{party.name}</li>);
+
   const handleClick = () => {
-    setState("party", "new");
-    console.log(Context.party);
+    setState({ party: "new" });
   };
+
+  // const userData = async () => {
+  //   const userId = Auth.getProfile().data._id;
+  //   console.log(userId);
+  //   await user({
+  //     variables: { _id: userId },
+  //   });
+  // };
+  // userData();
+  // console.log(userData);
 
   return (
     <section>
@@ -20,7 +43,7 @@ function User() {
         <>
           <div className="container" id="user">
             <img src={profile} alt="profile pic" className="profilePic" />
-            <h3 className="username">username</h3>
+            <h3 className="username">{Auth.getProfile().data.username}</h3>
 
             <h2 className="updates">Upcoming/Live Parties</h2>
             <div>
@@ -33,6 +56,7 @@ function User() {
                 </li>
                 <li className="item">
                   <a href="#myParties">My Parties</a>
+                  {listParties}
                 </li>
                 <li className="item">
                   <a href="#recentParties">Recent Parties</a>
@@ -41,7 +65,9 @@ function User() {
                   <a href="#friends">My Friends</a>
                 </li>
                 <li className="item">
-                  <a href="#logout">Logout</a>
+                  <a href="#logout" onClick={Auth.logout}>
+                    Logout
+                  </a>
                 </li>
               </ul>
             </div>

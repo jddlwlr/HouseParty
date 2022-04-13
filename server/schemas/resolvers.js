@@ -8,6 +8,9 @@ const resolvers = {
     users: async (parent, args) => {
       return await User.find();
     },
+    user: async (parent, args) => {
+      return await User.findById(args);
+    },
 
     parties: async (parent, args) => {
       return await Party.findById(args).populate("rules");

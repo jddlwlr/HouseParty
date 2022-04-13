@@ -71,7 +71,7 @@ const NewParty = (props) => {
       });
       const partyNum = mutationResponse.data.addParty._id;
       setState({ partyId: partyNum });
-      console.log(state.partyId);
+      console.log(state.userId);
     } catch (e) {
       console.log(e);
     }

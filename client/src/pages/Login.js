@@ -1,13 +1,15 @@
-import React, { useState } from "react";
-
+import React, { useState, useContext } from "react";
 import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations";
 import Auth from "../utils/auth";
+import { Context } from "../utils/GlobalState";
 
 function Login(props) {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN);
+
+  const [state, setState] = useContext(Context);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -16,6 +18,10 @@ function Login(props) {
         variables: { email: formState.email, password: formState.password },
       });
       const token = mutationResponse.data.login.token;
+      const ID = mutationResponse.data.login.user._id;
+      console.log(mutationResponse.data.login.user._id);
+      setState({ userId: ID });
+      console.log(state.userId);
       Auth.login(token);
     } catch (e) {
       console.log(e);

@@ -15,7 +15,7 @@ const RuleForm = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(state.partyId);
+    console.log(state.userId);
     try {
       const mutationResponse = await addRule({
         variables: { name: formState.name, partyId: state.partyId },
