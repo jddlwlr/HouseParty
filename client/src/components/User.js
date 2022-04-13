@@ -48,7 +48,7 @@ function User() {
           </div>
         </>
       ) : (
-        <p>
+        <p className="userPanel">
           {" "}
           You need to be logged in play! Please <Link to="/login">
             login

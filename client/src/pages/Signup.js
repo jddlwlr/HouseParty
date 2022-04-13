@@ -46,14 +46,14 @@ function Signup(props) {
           <input
             type="email"
             name="email"
-            id="email"
+            id="user_email"
             placeholder="Email"
             onChange={handleChange}
           />
           <input
             type="password"
-            name="password"
-            id="password"
+            name="assword"
+            id="user_password"
             placeholder="Password"
             onChange={handleChange}
           />

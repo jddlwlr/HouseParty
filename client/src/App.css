@@ -39,6 +39,8 @@
 
 :root {
   background-color: #FF416C;
+  --playful:fuchsia;
+   
 }
 
 html {
@@ -56,9 +58,10 @@ body {
 #partyFoul {
 
 color:blueviolet;
+text-shadow: fuchsia 2px 5px;
 text-align: center;
 font-weight: bold;
-font-size: 60px;
+font-size: 72px;
 font-family: 'Sedgwick Ave Display', cursive;
 }
 
@@ -66,8 +69,8 @@ font-family: 'Sedgwick Ave Display', cursive;
 nav {
   display: flex;
   justify-content: space-evenly;
-  justify-content: flex-end;
-  
+  justify-content: center;
+  margin-bottom: 30px;
   max-width: 100%;
   width: auto;
   height: auto;
@@ -76,7 +79,7 @@ nav {
 
 nav a {
   color:fuchsia;
-  font-size: 15px;
+  font-size: 20px;
   padding: 14px 20px;
   text-decoration: none;
   text-align: center;
@@ -101,15 +104,21 @@ nav a:hover {
   margin: auto;
   text-align: center;
   padding: 14px 20px;
-  color:  #FF4B2B;
+  color: blueviolet;
   cursor: pointer;
   font-weight: bold;
+  
+}
+
+#user ul {
+  list-style-type: none;
 }
 
 #user a:hover {
 
-  background-color: aqua;
-  color: black;
+  background-color: blueviolet;
+  color: white;
+  border-radius: 15px;
 }
 /* game area*/
 
@@ -238,7 +247,7 @@ input {
 .containerLogin {
 	background-color: #fff;
 	border-radius: 10px;
-  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
 			0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
 	overflow: hidden;
@@ -317,7 +326,7 @@ input {
 	left: -100%;
 	height: 100%;
 	width: 200%;
-  	transform: translateX(0);
+  transform: translateX(0);
 	transition: transform 0.6s ease-in-out;
 }
 
@@ -402,8 +411,8 @@ body {
   max-width: 100%;
   height: 90vh;
   max-height: 900px;
-  background: #fff;
-  border-radius: 4px;
+  background:lavenderblush;
+  border-radius: 20px;
   box-shadow:
   0 0.3px 2.2px rgba(0, 0, 0, 0.011),
   0 0.7px 5.3px rgba(0, 0, 0, 0.016),
@@ -419,7 +428,11 @@ body {
   border-right: 1px solid #e3e7f7;
   position: relative;
 }
-.left-content { padding: 40px; }
+.left-content { 
+  padding: 40px; 
+  display: auto;
+  flex-direction: column;
+  }
 
 .item {
   @extend %flex;
@@ -428,6 +441,30 @@ body {
   font-weight: 500;
 
 }
+
+.item button{
+
+  border-radius: 15px;
+	border: none;
+  font-size:14px;
+	color:blueviolet;
+  background-color: transparent;
+	font-weight: bold;
+  font-family: 'Grape Nuts', cursive;
+  text-transform:capitalize;
+  padding: 14px 20px;
+	letter-spacing: 1px;
+  
+ 
+  
+}
+
+.item button:hover {
+  color: white;
+  background-color: blueviolet;
+}
+
+
 .page-content {
   display: flex;
   flex-direction: column;
@@ -481,14 +518,32 @@ body {
   text-align: center;
   max-width: auto;
   height: auto;
+  color: blueviolet;
+  font-size: 14px;
+  font-family: 'Grape Nuts', cursive;
+}
+
+#live p {
+  font-size: 23px;
+  font-family: 'Grape Nuts', cursive;
+
+}
+
+#liveParty {
+  color: fuchsia;
+  text-decoration: underline;
+  font-size: 30px;
 }
 
 /* User Info --Left Panel */
 
 .username {
-font-size: 14px;
-font-family: Georgia, 'Times New Roman', Times, serif;
-color:#FF4B2B; 
+font-size: 20px;
+font-family: 'Grape Nuts', cursive;
+ color: blueviolet;
+ align-items: center;
+ vertical-align: auto;
+ text-align: center;
 }
 
 .profilePic {
@@ -500,12 +555,26 @@ color:#FF4B2B;
   text-decoration: none;
   text-align: center;
   align-items: center;
-  vertical-align: auto;
+  
+  font-family: 'Grape Nuts', cursive;
+ 
+  
 }
+
 
 .item a::marker {
 display: none;
 }
+
+.updates {
+  font-family: 'Grape Nuts', cursive;
+  color: fuchsia;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+
 
 /* Party */
 
@@ -522,3 +591,47 @@ display: none;
   width: 25%;
 }
 
+#createParty  {
+  color: blueviolet;
+  font-family: 'Grape Nuts', cursive;
+  font-size: 15px;
+
+}
+
+/* new party container */
+
+#newParty {
+  background:lavenderblush; 
+}
+
+#foulContainer {
+  background:lavenderblush; 
+}
+
+
+
+
+#partyBtn button{
+  border:white;
+  border-radius: 15px;
+  background-color: blueviolet;
+  color: white;
+
+
+}
+
+#partyBtn button:hover {
+  background-color: fuchsia;
+  color: white;
+}
+
+#foulContainer button {
+  border:white;
+  border-radius: 15px;
+  background-color: blueviolet;
+  color: white;
+}
+#foulContainer button:hover {
+  background-color: fuchsia;
+  color: white;
+}

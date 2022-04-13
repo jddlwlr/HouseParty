@@ -41,6 +41,7 @@ const RuleForm = () => {
         <>
           <form
             className="flex-row justify-center justify-space-between-md align-center"
+            id="foulContainer"
             onSubmit={handleFormSubmit}
           >
             <div className="col-12 col-lg-9">

@@ -6,7 +6,7 @@ function Live() {
     <section>
       <div className="container" id="live">
         <div>
-          <h2>Live Party</h2>
+          <h2 id="liveParty">Live Party</h2>
           <p> Participants</p>
         </div>
 

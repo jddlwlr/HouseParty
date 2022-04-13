@@ -1,4 +1,4 @@
-import { React, useContext } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   ApolloClient,
@@ -16,10 +16,12 @@ import User from "./components/User";
 import Live from "./components/Live";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
+import LoggingIn from "./components/LoggingIn";
 import Signup from "./pages/Signup";
 import NewParty from "./components/NewParty";
 import Store, { Context } from "./utils/GlobalState";
 import RuleForm from "./components/RuleForm";
+import logo from "../src/images/party_foul.png";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -42,13 +44,12 @@ const client = new ApolloClient({
 
 //import LoggingIn from "./LoggingIn";
 function App() {
-  // const state = useContext(Context);
-
   return (
     <ApolloProvider client={client}>
       <Router>
         <Store>
           <div className="App">
+            <img src={logo} alt="logo" className="logo" />
             <div className="task-manager">
               <div className="left-bar">
                 <div className="upper-part">

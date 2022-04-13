@@ -91,10 +91,11 @@ const NewParty = (props) => {
         <>
           <form
             className="flex-row justify-center justify-space-between-md align-center"
+            id="newParty"
             onSubmit={handleFormSubmit}
           >
-            <div className="col-12 col-lg-9">
-              <h1>Create a new Party</h1>
+            <div className="col-12 col-lg-9" id="createParty">
+              <h1>Create a new Party </h1>
               <input
                 type="text"
                 name="name"
@@ -103,9 +104,9 @@ const NewParty = (props) => {
                 onChange={handleChange}
               />
             </div>
-            <div className="col-12 col-lg-3">
-              <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Foul
+            <div className="col-12 col-lg-3" id="partyBtn">
+              <button className=" py-3" type="submit">
+                Add Party
               </button>
             </div>
             {error && (
