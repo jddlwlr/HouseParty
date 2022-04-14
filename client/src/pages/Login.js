@@ -34,6 +34,8 @@ function Login(props) {
     <div className="container" id="container">
       <div className="form-container sign-up-container">
         <form onSubmit={handleFormSubmit}>
+          <h1>Welcome to Party Foul!</h1>
+
           <span>or use your email for registration</span>
           <input
             type="text"
@@ -62,7 +64,7 @@ function Login(props) {
       <div className="form-container sign-in-container">
         <form onSubmit={handleFormSubmit}>
           <h1>Sign in</h1>
-          <span>or use your account</span>
+          <span>using your email address and password</span>
           <input
             type="email"
             name="email"
@@ -84,7 +86,6 @@ function Login(props) {
               </p>
             </div>
           ) : null}
-
           <button ahref="#profile">Sign In</button>
         </form>
       </div>

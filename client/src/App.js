@@ -9,19 +9,15 @@ import {
 import { setContext } from "@apollo/client/link/context";
 
 import "./App.css";
-import Header from "./components/Header";
+import Home from "./components/Home";
 import About from "./components/About";
-import Party from "./components/Party";
-import User from "./components/User";
-import Live from "./components/Live";
+import LiveParty from "./components/LiveParty";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
-import LoggingIn from "./components/LoggingIn";
 import Signup from "./pages/Signup";
-import NewParty from "./components/NewParty";
+
 import Store, { Context } from "./utils/GlobalState";
-import RuleForm from "./components/RuleForm";
-import logo from "../src/images/party_foul.png";
+//import RuleForm from "./components/RuleForm";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -48,35 +44,16 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Store>
-          <div className="App">
-            <img src={logo} alt="logo" className="logo" />
-            <div className="task-manager">
-              <div className="left-bar">
-                <div className="upper-part">
-                  <div className="actions"></div>
-                </div>
-                <div className="left-content">
-                  <User className="userContainer" />
-                </div>
-              </div>
-              <div class="page-content">
-                <Header className="navBarContainer" />
-                {(Context.party = "new" ? <NewParty /> : <Party />)}
-                {(Context.party = "new" ? <RuleForm /> : <Party />)}
-                <About className="aboutContainer" />
-              </div>
-              <div className="right-bar">
-                <div className="top-part">
-                  <Live className="liveContainer" />
-                </div>
-              </div>
-            </div>
-            <Footer class="footerContainer" />
-            <Routes>
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-            </Routes>
-          </div>
+          <Home />
+
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/party" element={<LiveParty />} />
+          </Routes>
+          <Footer />
         </Store>
       </Router>
     </ApolloProvider>

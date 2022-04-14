@@ -6,12 +6,10 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      party
+      partyName
     }
   }
 `;
-
-
 
 export const QUERY_RULE = gql`
   query allRules {
@@ -24,11 +22,14 @@ export const QUERY_RULE = gql`
 
 export const QUERY_PARTY = gql`
   query allParty {
-    _id
-    name
-    users
-    rules
-    startDate
-    endDate
+    party(partyName: $partyName) {
+      _id
+      name
+      users
+      partyName
+      rules
+      startDate
+      endDate
+    }
   }
-`
+`;

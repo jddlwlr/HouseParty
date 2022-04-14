@@ -57,11 +57,11 @@ body {
 
 #partyFoul {
 
-color:blueviolet;
+color:white;
 text-shadow: fuchsia 2px 5px;
 text-align: center;
 font-weight: bold;
-font-size: 72px;
+font-size: 90px;
 font-family: 'Sedgwick Ave Display', cursive;
 }
 
@@ -78,7 +78,7 @@ nav {
 }
 
 nav a {
-  color:fuchsia;
+  color:white;
   font-size: 20px;
   padding: 14px 20px;
   text-decoration: none;
@@ -87,7 +87,7 @@ nav a {
 }
 
 nav a:hover {
-  background-color: blueviolet;
+  background-color: fuchsia;
   color: white;
   border-radius: 15px;
 }
@@ -105,7 +105,6 @@ nav a:hover {
   text-align: center;
   padding: 14px 20px;
   color: blueviolet;
-  cursor: pointer;
   font-weight: bold;
   
 }
@@ -114,6 +113,17 @@ nav a:hover {
   list-style-type: none;
 }
 
+#Welcome h1 {
+  color: blueviolet;
+  background-color: #282c34;
+}
+
+#funFacts li {
+  list-style-type: none;
+  font-size: 16px;
+  font-family: Georgia, 'Times New Roman', Times, serif ;
+  line-height: 2.5;
+}
 #user a:hover {
 
   background-color: blueviolet;
@@ -155,7 +165,9 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	height: 100vh;
 	margin: -20px 0 50px;
+  
 }
+
 
 .container {
   max-width: 100%;
@@ -186,6 +198,7 @@ p {
 	line-height: 20px;
 	letter-spacing: 0.5px;
 	margin: 20px 0 30px;
+
 }
 
 span {
@@ -201,8 +214,8 @@ a {
 
 button {
 	border-radius: 20px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
+	border: 1px solid white;
+	background-color: blueviolet;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -210,6 +223,11 @@ button {
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
+}
+
+button:hover {
+  background-color: fuchsia;
+  color: white;
 }
 
 button:active {
@@ -223,6 +241,11 @@ button:focus {
 button.ghost {
 	background-color: transparent;
 	border-color: #FFFFFF;
+}
+
+button.ghost:hover {
+  background-color: white;
+  color:fuchsia;
 }
 
 form {
@@ -316,8 +339,8 @@ input {
 
 .overlay {
 	background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background: -webkit-linear-gradient(to right, blueviolet, #FF416C);
+	background: linear-gradient(to right, blueviolet, #FF416C);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;

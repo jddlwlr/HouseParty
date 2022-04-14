@@ -11,6 +11,23 @@ const Home = () => {
   const { loading, data } = useQuery(QUERY_RULE);
   const rules = data?.rules || [];
 
+  if (loading) {
+    return (
+      <div class="d-flex align-items-center">
+        <strong>Loading...</strong>
+        <div
+          class="spinner-border ms-auto"
+          role="status"
+          aria-hidden="true"
+        ></div>
+      </div>
+    );
+  }
+
+  if (!rules?.name) {
+    return <h3> Please add party rules to your game!</h3>;
+  }
+
   return (
     <main>
       <div className="App">
@@ -23,11 +40,8 @@ const Home = () => {
               <User />
             </div>
           </div>
-          <div class="page-content">
-            <Party />
-          </div>
+
           <div className="right-bar">
-            <Line />
             <Live className="liveContainer" />
           </div>
         </div>
@@ -35,3 +49,5 @@ const Home = () => {
     </main>
   );
 };
+
+export default Home;

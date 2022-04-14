@@ -52,7 +52,7 @@ function Signup(props) {
           />
           <input
             type="password"
-            name="assword"
+            name="password"
             id="user_password"
             placeholder="Password"
             onChange={handleChange}
@@ -63,7 +63,7 @@ function Signup(props) {
       </div>
       <div className="overlay-container">
         <div className="overlay">
-          <div className="overlay-panel overlay-left">
+          <div className="overlay-panel overlay-left" id="Welcome">
             <h1>Welcome Back!</h1>
             <p>
               To keep connected with us please login with your personal info
@@ -72,7 +72,7 @@ function Signup(props) {
               Sign In
             </button>
           </div>
-          <div className="overlay-panel overlay-right">
+          <div className="overlay-panel overlay-right" id="funFacts">
             <h1>Drink with Friends</h1>
             <p>
               <li>Create your own party</li>
