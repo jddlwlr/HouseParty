@@ -5,9 +5,7 @@ const Home = () => {
     <div name="home" className="">
       {/* Container */}
       <div className="">
-        <h1 className="text-4xl sm:text-7xl font-bold text-[#ccd6f6]">
-          Welcome to
-        </h1>
+        <h1 className="">Welcome to</h1>
         <h2 className="">Party Foul!</h2>
         <p className="">Where the party comes to you!!</p>
         <div>

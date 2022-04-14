@@ -5,28 +5,54 @@ import { users } from "../users";
 import { rules } from "../rules";
 import profile from "../images/profile.png";
 
-import { QUERY_PARTY, QUERY_USER } from "../utils/queries";
+import { QUERY_USER } from "../utils/queries";
+import { QUERY_PARTY } from "../utils/queries";
 import { Context } from "../utils/GlobalState";
 
 import Auth from "../utils/auth";
+import RuleForm from "./RuleForm";
+import auth from "../utils/auth";
 
-
-export default LiveParty = () => {
-
+export default function LiveParty() {
   const { partyName: partyParam } = useParams();
 
-  const { loading, data } = useQuery(partyParam ? QUERY_PARTY : QUERY_USER, {
+  const { loading1, data1 } = useQuery(partyParam ? QUERY_PARTY : QUERY_USER, {
     variables: { partyName: partyParam },
   });
 
-  const party = data?.party || data?.users || {};
+  const party = data1?.party || data1?.users || {};
 
+  // eslint-disable-next-line no-undef
   const [state, setState] = useContext(Context);
-  const handleClick = () => {
-    setState("party", "new");
-    console.log(Context.party);
 
-  if (Auth.loggedIn() && Auth.getLiveParty().data.partyName === partyParam) {
+  const { loading, data } = useQuery(QUERY_USER, {
+    variables: { id: auth.getProfile().data._id },
+  });
+
+  const partyClick = (id, e) => {
+    setState({
+      ...state,
+      partyId: id,
+      new: false,
+    });
+    console.log(state);
+  };
+  console.log(state);
+  const partyList = data?.user.parties || [];
+
+  const listParties = partyList.map((party) => (
+    <button onClick={(e) => partyClick(party._id, e)}>{party.name}</button>
+  ));
+
+  const handleClick = () => {
+    setState({
+      ...state,
+      new: true,
+      partyId: "",
+    });
+  };
+
+  if (Auth.loggedIn() && Auth.getLiveParty().data1.partyName === partyParam) {
     return <Navigate to="party" />;
   }
 
@@ -57,7 +83,7 @@ export default LiveParty = () => {
         <div className="left-content"></div>
         <div>
           <img src={profile} alt="profile pic" className="profilePic" />
-          <h3 className="username">username</h3>
+          <h3 className="username">{auth.getProfile().data.username}</h3>
 
           <h2 className="updates">Upcoming/Live Parties</h2>
           <div>
@@ -70,6 +96,7 @@ export default LiveParty = () => {
               </li>
               <li className="item">
                 <a href="#myParties">My Parties</a>
+                {listParties}
               </li>
               <li className="item">
                 <a href="#recentParties">Recent Parties</a>
@@ -78,7 +105,9 @@ export default LiveParty = () => {
                 <a href="#friends">My Friends</a>
               </li>
               <li className="item">
-                <a href="#logout">Logout</a>
+                <a href="#logout" onClick={Auth.logout}>
+                  Logout
+                </a>
               </li>
             </ul>
           </div>
@@ -129,7 +158,8 @@ export default LiveParty = () => {
       <div></div>
       <div className="right-bar">
         <div className="top-part"></div>
+        <RuleForm />
       </div>
     </div>
-  )
-     }
+  );
+}

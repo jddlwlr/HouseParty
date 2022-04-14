@@ -1,5 +1,10 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { React, useContext } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
@@ -7,6 +12,7 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import Auth from "./utils/auth";
 
 import "./App.css";
 import Home from "./components/Home";
@@ -17,6 +23,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
 import Store, { Context } from "./utils/GlobalState";
+import Navbar from "./components/Navbar";
+import NewParty from "./components/NewParty";
 //import RuleForm from "./components/RuleForm";
 
 const httpLink = createHttpLink({
@@ -44,13 +52,14 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Store>
-          <Home />
+          <Navbar />
 
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/create" element={<NewParty />} />
             <Route path="/party" element={<LiveParty />} />
           </Routes>
           <Footer />
