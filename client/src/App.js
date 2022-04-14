@@ -18,13 +18,14 @@ import "./App.css";
 import Home from "./components/Home";
 import About from "./components/About";
 import LiveParty from "./components/LiveParty";
+import NewParty from "./components/NewParty";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
 import Store, { Context } from "./utils/GlobalState";
 import Navbar from "./components/Navbar";
-import NewParty from "./components/NewParty";
+
 //import RuleForm from "./components/RuleForm";
 
 const httpLink = createHttpLink({
@@ -50,21 +51,20 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <Store>
-          <Navbar />
-
-          <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/create" element={<NewParty />} />
-            <Route path="/party" element={<LiveParty />} />
-          </Routes>
-          <Footer />
-        </Store>
-      </Router>
+      <Navbar />
+      {Auth.loggedIn() ? <></> : <Login />}
+      {console.log(Store)}
+      <div>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/create" element={<NewParty />} />
+          <Route path="/party" element={<LiveParty />} />
+        </Routes>
+      </div>
+      <Footer />
     </ApolloProvider>
   );
 }

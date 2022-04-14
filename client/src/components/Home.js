@@ -6,7 +6,9 @@ const Home = () => {
       {/* Container */}
       <div className="">
         <h1 className="">Welcome to</h1>
-        <h2 className="">Party Foul!</h2>
+        <h2 className="title" id="#partyFoul">
+          Party Foul!
+        </h2>
         <p className="">Where the party comes to you!!</p>
         <div>
           <button className="">

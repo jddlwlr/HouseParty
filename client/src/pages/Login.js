@@ -9,6 +9,7 @@ function Login(props) {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN);
 
+  // eslint-disable-next-line no-unused-vars
   const [state, setState] = useContext(Context);
 
   const handleFormSubmit = async (event) => {

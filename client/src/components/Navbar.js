@@ -7,7 +7,7 @@ const Navbar = () => {
   const handleClick = () => setNav(!nav);
 
   return (
-    <div className="">
+    <div className="nav">
       <div>
         <img src={Logo} alt="" />
       </div>
