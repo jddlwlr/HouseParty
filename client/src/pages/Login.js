@@ -18,10 +18,6 @@ function Login(props) {
         variables: { email: formState.email, password: formState.password },
       });
       const token = mutationResponse.data.login.token;
-      const ID = mutationResponse.data.login.user._id;
-      console.log(mutationResponse.data.login.user._id);
-      setState({ userId: ID });
-      console.log(state.userId);
       Auth.login(token);
     } catch (e) {
       console.log(e);
@@ -62,13 +58,13 @@ function Login(props) {
             placeholder="Password"
             onChange={handleChange}
           />
-          <button>Sign Up</button>
+          <button>Sign Uppppp</button>
         </form>
       </div>
       <div className="form-container sign-in-container">
         <form onSubmit={handleFormSubmit}>
           <h1>Sign in</h1>
-          <span>or use your account</span>
+
           <input
             type="email"
             name="email"

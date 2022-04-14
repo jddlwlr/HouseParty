@@ -9,56 +9,6 @@ import { ADD_PARTY } from "../utils/mutations";
 import Auth from "../utils/auth";
 
 const NewParty = (props) => {
-  // const [ruleText, setRuleText] = useState("");
-
-  // const [addRule, { error }] = useMutation(RULE, {
-  //   update(cache, { data: { addRule } }) {
-  //     try {
-  //       const { rules } = cache.readQuery({ query: QUERY_RULE });
-
-  //       cache.writeQuery({
-  //         query: QUERY_RULE,
-  //         data: { rules: [addRule, ...rules] },
-  //       });
-  //     } catch (e) {
-  //       console.error(e);
-  //     }
-
-  //     // need a me object to update cache with new rules
-
-  //     const { mine } = cache.readQuery({ query: QUERY_MINE });
-  //     cache.writeQuery({
-  //       query: QUERY_MINE,
-  //       data: { mine: { ...mine, rules: [...mine.rules, addRule] } },
-  //     });
-  //   },
-  // });
-
-  // const handleFormSubmit = async (event) => {
-  //   event.preventDefault();
-
-  //   try {
-  //     const { data } = await addRule({
-  //       variables: {
-  //         ruleText,
-  //       },
-  //     });
-
-  //     setRuleText("");
-  //   } catch (err) {
-  //     console.err(err);
-  //   }
-  // };
-
-  // const handleChange = (event) => {
-  //   const { foul, value } = event.target;
-
-  //   if (foul === "ruleText" && value.length <= 200) {
-  //     setRuleText(value);
-  //     setLetterCount(value.length);
-  //   }
-  // };
-
   const [formState, setFormState] = useState({ name: "" });
   const [newParty, { error }] = useMutation(ADD_PARTY);
   const [state, setState] = useContext(Context);
@@ -85,6 +35,10 @@ const NewParty = (props) => {
     });
   };
 
+  if (state.new !== true) {
+    return null;
+  }
+
   return (
     <div>
       {Auth.loggedIn() ? (
@@ -105,7 +59,7 @@ const NewParty = (props) => {
             </div>
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Foul
+                Start party
               </button>
             </div>
             {error && (
