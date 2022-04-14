@@ -46,14 +46,14 @@ function Signup(props) {
           <input
             type="email"
             name="email"
-            id="email"
+            id="user_email"
             placeholder="Email"
             onChange={handleChange}
           />
           <input
             type="password"
-            name="password"
-            id="password"
+            name="assword"
+            id="user_password"
             placeholder="Password"
             onChange={handleChange}
           />
@@ -78,7 +78,7 @@ function Signup(props) {
               <li>Create your own party</li>
               <li>Create your own rules</li>
               <li>From anywhere in the world</li>
-              <li>With anyone ion the world</li>
+              <li>With anyone in the world</li>
             </p>
           </div>
         </div>

@@ -39,9 +39,10 @@ const RuleForm = () => {
 
       {Auth.loggedIn() ? (
         <>
-          {state.partyId === "" ? <div></div> : <Foul key={this.state.key} />}
+          {state.partyId === "" ? <div></div> : <Foul />}
           <form
             className="flex-row justify-center justify-space-between-md align-center"
+            id="foulContainer"
             onSubmit={handleFormSubmit}
           >
             <div className="col-12 col-lg-9">

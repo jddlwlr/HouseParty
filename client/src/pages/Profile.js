@@ -9,7 +9,7 @@ import { QUERY_USER, QUERY_MINE } from "../utils/queries";
 import Auth from "../utils/auth";
 
 const Profile = () => {
-  const { username: userParam } = useParas();
+  const { username: userParam } = useParams();
 
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_MINE, {
     variables: { username: userParam },
