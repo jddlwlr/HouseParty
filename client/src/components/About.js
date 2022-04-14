@@ -2,17 +2,17 @@ import React from "react";
 
 const About = () => {
   return (
-    <div name="about" className="">
-      <div className="">
+    <div name="about" className="container-md">
+      <div className="history">
         <div className="">
-          <div className="">
-            <p className="">About Party Foul</p>
+          <div className="about">
+            <h1 className="info">About Party Foul </h1>
           </div>
           <div></div>
         </div>
 
-        <div className="">
-          <div>
+        <div className="page-content">
+          <div className="gameInfo">
             <p>
               {" "}
               Have you been home alone and wanted to hang with your friends or

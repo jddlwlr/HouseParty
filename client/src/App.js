@@ -1,10 +1,5 @@
-import { React, useContext } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
@@ -15,18 +10,20 @@ import { setContext } from "@apollo/client/link/context";
 import Auth from "./utils/auth";
 
 import "./App.css";
-import Home from "./components/Home";
+import Header from "./components/Header";
 import About from "./components/About";
-import LiveParty from "./components/LiveParty";
-import NewParty from "./components/NewParty";
+import Party from "./components/Party";
+import User from "./components/User";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
+import Home from "./pages/Home";
+import Info from "./pages/Info";
+
 import Signup from "./pages/Signup";
-
-import Store, { Context } from "./utils/GlobalState";
-import Navbar from "./components/Navbar";
-
-//import RuleForm from "./components/RuleForm";
+import NewParty from "./components/NewParty";
+import Store from "./utils/GlobalState";
+import RuleForm from "./components/RuleForm";
+import logo from "../src/images/party_foul.png";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -51,20 +48,27 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Navbar />
-      {Auth.loggedIn() ? <></> : <Login />}
-      {console.log(Store)}
-      <div>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/create" element={<NewParty />} />
-          <Route path="/party" element={<LiveParty />} />
-        </Routes>
-      </div>
-      <Footer />
+      <Router>
+        <Store>
+          <div className="App">
+            <Header />
+            <div className="task-manager">
+              {Auth.loggedIn() ? <></> : <Login />}
+              {console.log(Store)}
+
+              <Routes>
+                <Route path="party" element={<Party />} />
+                <Route path="create" element={<NewParty />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<Info />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+              </Routes>
+            </div>{" "}
+            <Footer class="footerContainer" />
+          </div>
+        </Store>
+      </Router>
     </ApolloProvider>
   );
 }

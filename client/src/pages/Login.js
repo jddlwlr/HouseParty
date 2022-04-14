@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations";
+
 import Auth from "../utils/auth";
 import { Context } from "../utils/GlobalState";
 
@@ -35,6 +36,9 @@ function Login(props) {
 
   return (
     <div className="container" id="container">
+      <div className="container">
+        <h1> Party Foul!</h1>
+      </div>
       <div className="form-container sign-up-container">
         <form onSubmit={handleFormSubmit}>
           <h1>Welcome to Party Foul!</h1>

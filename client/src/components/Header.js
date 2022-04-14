@@ -1,4 +1,4 @@
-/*import React from "react";
+import React from "react";
 
 function Header() {
   return (
@@ -14,9 +14,9 @@ function Header() {
           <div>
             <a href="/">Home</a>
 
-            <a href="#liveparty">Live Parties</a>
+            <a href="#party">Live Parties</a>
 
-            <a href="#createparty">New Party</a>
+            <a href="#create">New Party</a>
 
             <a href="#about">About</a>
           </div>
@@ -26,4 +26,4 @@ function Header() {
   );
 }
 
-export default Header;*/
+export default Header;
