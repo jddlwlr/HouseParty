@@ -1,6 +1,4 @@
 import React, { useContext, useState } from "react";
-// import { Link } from "react-router-dom";
-// import { useMutation } from "@apollo/client";
 import { Context } from "../utils/GlobalState";
 import { useQuery } from "@apollo/client";
 
