@@ -33,6 +33,7 @@ const typeDefs = gql`
     rules(party: ID): [Rule]
     users: [User]
     party(_id: ID!): Party
+    user(_id: ID!): User
   }
 
   type Mutation {

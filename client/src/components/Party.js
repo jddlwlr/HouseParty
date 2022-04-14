@@ -2,9 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { rules } from "../rules";
 import Auth from "../utils/auth";
+import { Context } from "../utils/GlobalState";
 //import partyName from "";
 
 function Party() {
+  if ((Context.new = true)) {
+    return null;
+  }
   return (
     <section>
       {Auth.loggedIn() ? (
