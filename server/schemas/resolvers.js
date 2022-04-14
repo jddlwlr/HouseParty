@@ -8,6 +8,9 @@ const resolvers = {
     users: async (parent, args) => {
       return await User.find();
     },
+    user: async (parent, args) => {
+      return await User.findById(args);
+    },
 
     parties: async (parent, args) => {
       return await Party.findById(args).populate("rules");
@@ -15,8 +18,8 @@ const resolvers = {
     rules: async (parent, args) => {
       return await Rule.find(args);
     },
-    party: async (parent, { _id }) => {
-      const party = await Party.findById(_id).populate("rules");
+    party: async (parent, args) => {
+      const party = await Party.findById(args).populate("rules");
       return party;
       // console.log({ ...party });
     },

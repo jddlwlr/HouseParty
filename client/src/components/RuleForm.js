@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { Context } from "../utils/GlobalState";
+import Foul from "./Foul";
 
 import { ADD_RULE } from "../utils/mutations";
 // import { QUERY_RULE, QUERY_MINE } from "../utils/queries";
@@ -15,7 +16,6 @@ const RuleForm = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(state.partyId);
     try {
       const mutationResponse = await addRule({
         variables: { name: formState.name, partyId: state.partyId },
@@ -39,6 +39,7 @@ const RuleForm = () => {
 
       {Auth.loggedIn() ? (
         <>
+          {state.partyId === "" ? <div></div> : <Foul key={this.state.key} />}
           <form
             className="flex-row justify-center justify-space-between-md align-center"
             id="foulContainer"

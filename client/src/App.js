@@ -1,5 +1,10 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { React, useContext } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
@@ -7,6 +12,7 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import Auth from "./utils/auth";
 
 import "./App.css";
 import Header from "./components/Header";
@@ -54,28 +60,41 @@ function App() {
               <div className="left-bar">
                 <div className="upper-part">
                   <div className="actions"></div>
-                </div>
-                <div className="left-content">
-                  <User className="userContainer" />
-                </div>
-              </div>
-              <div class="page-content">
-                <Header className="navBarContainer" />
-                {(Context.party = "new" ? <NewParty /> : <Party />)}
-                {(Context.party = "new" ? <RuleForm /> : <Party />)}
-                <About className="aboutContainer" />
-              </div>
-              <div className="right-bar">
-                <div className="top-part">
-                  <Live className="liveContainer" />
-                </div>
-              </div>
-            </div>
-            <Footer class="footerContainer" />
-            <Routes>
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-            </Routes>
+                  {Auth.loggedIn() ? (
+                    <div className="App">
+                      <div className="task-manager">
+                        <div className="left-bar">
+                          <div className="upper-part">
+                            <div className="actions"></div>
+                          </div>
+                          <div className="left-content">
+                            <User className="userContainer" />
+                          </div>
+                        </div>
+                        <div class="page-content">
+                          <Header className="navBarContainer" />
+                          <Party /> <NewParty />
+                          <About className="aboutContainer" />
+                        </div>
+                        <div className="right-bar">
+                          <div className="top-part">
+                            <RuleForm />
+                          </div>
+                        </div>
+                      </div>
+                      <Footer class="footerContainer" />
+                    </div>
+                  ) : (
+                    <Login />
+                  )}
+                  {console.log(Store)}
+                  <Routes>
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<Signup />} />
+                  </Routes>
+                </div>{" "}
+              </div>{" "}
+            </div>{" "}
           </div>
         </Store>
       </Router>
