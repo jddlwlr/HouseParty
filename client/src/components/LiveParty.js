@@ -10,7 +10,7 @@ import { QUERY_PARTY } from "../utils/queries";
 import { Context } from "../utils/GlobalState";
 
 import Auth from "../utils/auth";
-import RuleForm from "./RuleForm";
+
 import auth from "../utils/auth";
 
 export default function LiveParty() {
@@ -156,10 +156,6 @@ export default function LiveParty() {
         </div>
       </div>
       <div></div>
-      <div className="right-bar">
-        <div className="top-part"></div>
-        <RuleForm />
-      </div>
     </div>
   );
 }

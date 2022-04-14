@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <div name="home" className="">
       {/* Container */}
-      <div className="">
+      <div className="homepage">
         <h1 className="">Welcome to</h1>
         <h2 className="title" id="#partyFoul">
           Party Foul!

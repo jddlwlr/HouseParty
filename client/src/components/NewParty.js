@@ -83,6 +83,10 @@ const NewParty = (props) => {
             <div>
               <h2 id="liveParty">Create Your Rules!</h2>
             </div>
+            <div className="right-bar">
+              <div className="top-part"></div>
+              <RuleForm />
+            </div>
           </div>
         </div>
       ) : (
