@@ -36,9 +36,7 @@ function Login(props) {
 
   return (
     <div className="container" id="container">
-      <div className="container">
-        <h1> Party Foul!</h1>
-      </div>
+      >
       <div className="form-container sign-up-container">
         <form onSubmit={handleFormSubmit}>
           <h1>Welcome to Party Foul!</h1>
