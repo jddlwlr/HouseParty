@@ -32,7 +32,9 @@ const RuleForm = () => {
       [name]: value,
     });
   };
-
+  if (state.new === false) {
+    return null;
+  }
   return (
     <div>
       <h2>Please enter your trigger foul!</h2>
