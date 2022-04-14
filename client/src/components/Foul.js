@@ -6,7 +6,7 @@ import { useQuery } from "@apollo/client";
 
 import { QUERY_PARTY } from "../utils/queries";
 
-const Foul = () => {
+const Foul = (props) => {
   //   const [formState, setFormState] = useState({ name: "", partyId: "" });
   //   const [addRule, { error }] = useMutation(ADD_RULE);
   const [state, setState] = useContext(Context);
@@ -41,7 +41,7 @@ const Foul = () => {
   //       ...formState,
   //       [name]: value,
   //     }):
-  return <div>{listRules}</div>;
+  return <>{state.new === true ? <div>{listRules}</div> : <div></div>}</>;
 };
 
 export default Foul;
