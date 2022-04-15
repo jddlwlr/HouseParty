@@ -8,5 +8,8 @@
   },
   "devDependencies": {
     "concurrently": "^5.1.0"
+  },
+  "dependencies": {
+    "react-scroll": "^1.8.7"
   }
 }

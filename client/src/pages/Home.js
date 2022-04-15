@@ -14,7 +14,7 @@ const Home = () => {
           <User />
         </div>
       </div>
-      <div class="page-content">
+      <div className="page-content">
         <div className="homepage">
           <div className="welcome">
             <h1 className="greeting">Welcome to</h1>
@@ -23,10 +23,12 @@ const Home = () => {
             </h2>
             <p className="">Where the party finds you!!</p>
             <div>
-              <button className="partyBtn">
-                Let's Party!!
-                <span className=""></span>
-              </button>
+              <a href="/party">
+                <button className="partyBtn">
+                  Let's Party!!
+                  <span className=""></span>
+                </button>
+              </a>
             </div>
           </div>
 

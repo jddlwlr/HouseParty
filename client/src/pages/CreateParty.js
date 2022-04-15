@@ -1,8 +1,8 @@
-import About from "../components/About";
+import NewParty from "../components/NewParty";
 import User from "../components/User";
-import ruleBook from "../images/ruleBook.jpg";
+import RuleForm from "../components/RuleForm";
 
-const Info = () => {
+const CreateParty = () => {
   return (
     <main>
       <div className="App">
@@ -16,10 +16,12 @@ const Info = () => {
             </div>
           </div>
           <div className="page-content">
-            <About />
+            <NewParty />
           </div>
           <div className="right-bar">
-            <img src={ruleBook} alt="rulebook" id="rulebook" />
+            <div className="right-content">
+              <RuleForm />
+            </div>
           </div>
         </div>
       </div>
@@ -27,4 +29,4 @@ const Info = () => {
   );
 };
 
-export default Info;
+export default CreateParty;

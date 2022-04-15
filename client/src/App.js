@@ -11,6 +11,7 @@ import Auth from "./utils/auth";
 
 import "./App.css";
 import Header from "./components/Header";
+import CreateParty from "./pages/CreateParty";
 
 import Party from "./components/Party";
 import Footer from "./components/Footer";
@@ -54,7 +55,7 @@ function App() {
 
             <Routes>
               <Route path="/party" element={<Party />} />
-              <Route path="/create" element={<NewParty />} />
+              <Route path="/create" element={<CreateParty />} />
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<Info />} />
               <Route path="/login" element={<Login />} />
