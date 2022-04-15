@@ -9,6 +9,10 @@ const typeDefs = gql`
     startDate: String
     endDate: String
   }
+  type Message {
+    text: String
+    createdby: String
+  }
 
   type Rule {
     _id: ID
@@ -28,11 +32,18 @@ const typeDefs = gql`
     user: User
   }
 
+  input MessageInput {
+    text: String
+    username: String
+  }
+
   type Query {
     parties: [Party]
     rules(party: ID): [Rule]
     users: [User]
     party(_id: ID!): Party
+    user(_id: ID!): User
+    message(id: ID!): Message
   }
 
   type Mutation {
@@ -41,6 +52,11 @@ const typeDefs = gql`
     addRule(name: String, partyId: String): Rule
     updateUser(username: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
+    createMessage(messageInput: MessageInput): Message!
+  }
+
+  type Subscription {
+    messageCreated: Message
   }
 `;
 
