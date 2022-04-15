@@ -12,6 +12,8 @@ import auth from "../utils/auth";
 // import { assertValidSchema } from "graphql";
 // import { from } from "@apollo/client";
 
+import cinco from "../images/cinco.gif";
+
 function User() {
   const [state, setState] = useContext(Context);
 
@@ -57,7 +59,10 @@ function User() {
       <>
         {Auth.loggedIn() ? (
           <div className="container" id="user">
-            <img src={profile} alt="profile pic" className="profilePic" />
+            <div className="userimage">
+              <img src={cinco} alt="Cinco De Mayo " className="profilePic" />
+            </div>
+
             <h3 className="username">{auth.getProfile().data.username}</h3>
 
             <h2 className="updates">Upcoming/Live Parties</h2>

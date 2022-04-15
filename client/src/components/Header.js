@@ -1,24 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <header>
-      <h1 className="header" id="partyFoul">
-        Party Foul
-      </h1>
+      <div className="container">
+        <h1 className="partybox" id="partyFoul">
+          Party Foul
+        </h1>
+      </div>
 
-      <br></br>
-      <br></br>
       <nav>
         <div className="container">
-          <div>
-            <a href="#profile">Profile</a>
-
-            <a href="#live_parties">Live Parties</a>
-
-            <a href="#new_party">New Party</a>
-
-            <a href="#about">About</a>
+          <div className="navbar">
+            <Link to="/">Home</Link>
+            <Link to="/party">Live Party</Link>
+            <Link to="/create">New Party</Link>
+            <Link to="/about">About</Link>
           </div>
         </div>
       </nav>
