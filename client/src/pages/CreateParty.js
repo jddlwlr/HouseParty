@@ -1,6 +1,6 @@
 import NewParty from "../components/NewParty";
 import User from "../components/User";
-import ruleBook from "../images/ruleBook.jpg";
+import party from "../images/party.jpg";
 
 const CreateParty = () => {
   return (
@@ -16,10 +16,12 @@ const CreateParty = () => {
             </div>
           </div>
           <div className="page-content">
-            <NewParty />
+            <User />
           </div>
           <div className="right-bar">
-            <img src={ruleBook} alt="rulebook" id="rulebook" />
+            <div className="mask1">
+              <img src={party} alt="clubparty" />
+            </div>
           </div>
         </div>
       </div>

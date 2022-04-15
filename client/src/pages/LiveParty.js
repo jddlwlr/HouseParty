@@ -16,6 +16,7 @@ const LiveParty = () => {
           <div className="page-content">
             <Party />
           </div>
+
           <div className="right-bar">
             <Live />
           </div>

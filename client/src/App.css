@@ -84,13 +84,13 @@ vertical-align: center;
   width: auto;
   height: auto;
   align-items: center;
-  color: white;
+
 
 
 }
 
 
-.navbar a {
+.navbar a{
   color:white;
   font-size: 20px;
   padding: 14px 20px;
@@ -106,6 +106,12 @@ vertical-align: center;
   background-color: fuchsia;
   color: white;
   border-radius: 15px;
+}
+
+
+.active-link a {
+  color: white;
+  background-color: fuchsia;
 }
 
 
@@ -482,6 +488,7 @@ body {
   0 4.2px 33.4px rgba(0, 0, 0, 0.029),
   0 10px 80px rgba(0, 0, 0, 0.04);
   overflow: hidden;
+
 }
 .left-bar {
  
@@ -683,6 +690,9 @@ display: none;
 
 }
 
+#gameon {
+  align-items: baseline;
+}
 /* new party container */
 
 #newParty {
@@ -741,9 +751,10 @@ button a {
 
 #rulebook {
   border-radius: 100px;
-  image-rendering:optimizeQuality;
+  image-rendering: pixelated;
   vertical-align: center;
   align-items: center;
+  background-color: lavenderblush;
   
 }
 
@@ -767,3 +778,4 @@ button a {
     width: 100%;
   }
 }
+
