@@ -3,6 +3,7 @@ import React, { useState } from "react";
 const initalState = {
   new: false,
   partyId: "",
+  currentParty: null,
   userId: "",
 };
 

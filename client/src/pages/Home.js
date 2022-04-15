@@ -1,15 +1,12 @@
-import React from "react";
-import { useQuery } from "@apollo/client";
-
+import React, { useContext } from "react";
 import User from "../components/User";
 import Party from "../components/Party";
+import NewParty from "../components/NewParty";
 import Live from "../components/Live";
-
-import { QUERY_RULE } from "../utils/queries";
-
+import RuleForm from "../components/RuleForm";
+import { Context } from "../utils/GlobalState";
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_RULE);
-  const rules = data?.rules || [];
+  const [state] = useContext(Context);
 
   return (
     <main>
@@ -23,15 +20,19 @@ const Home = () => {
               <User />
             </div>
           </div>
-          <div class="page-content">
-            <Party />
+          <div className="page-content">
+            {state.currentParty !== null ? <Party /> : <NewParty />}
+
           </div>
           <div className="right-bar">
-            <Line />
             <Live className="liveContainer" />
+            {state.currentParty !== null ? <RuleForm /> : null}
+            
           </div>
         </div>
       </div>
     </main>
   );
 };
+
+export default Home;

@@ -15,26 +15,25 @@ import auth from "../utils/auth";
 function User() {
   const [state, setState] = useContext(Context);
 
-  const { loading, data } = useQuery(QUERY_USER, {
+  const { data } = useQuery(QUERY_USER, {
     variables: { id: auth.getProfile().data._id },
   });
 
   const partyClick = (id, e) => {
     setState({
       ...state,
-      partyId: id,
+      currentParty: { id },
       new: false,
     });
-    console.log(state);
   };
-  console.log(state);
+
   const partyList = data?.user.parties || [];
 
-  const listParties = partyList.map((party) => (
-    <button onClick={(e) => partyClick(party._id, e)}>{party.name}</button>
+  const listParties = partyList.map((party, index) => (
+    <li key={index} className="party"><a href={`#party/${party._id}`} onClick={(e) => partyClick(party._id, e)}>{party.name}</a></li>
   ));
 
-  const handleClick = () => {
+  const onNewPartyClicked = () => {
     setState({
       ...state,
       new: true,
@@ -67,11 +66,14 @@ function User() {
                   <a href="#invites">My Invites</a>
                 </li>
                 <li className="item">
-                  <button onClick={handleClick}>New Party</button>
+                  <button onClick={onNewPartyClicked}>New Party</button>
                 </li>
                 <li className="item">
                   <a href="#myParties">My Parties</a>
-                  {listParties}
+                  <ul>
+                    {listParties}
+                  </ul>
+
                 </li>
                 <li className="item">
                   <a href="#recentParties">Recent Parties</a>

@@ -11,8 +11,8 @@ function Live() {
         </div>
 
         <div>
-          {users.map((user) => (
-            <div className="rules participants ">
+          {users.map((user, index) => (
+            <div key={index} className="rules participants ">
               <h1 className="ruleCard">{user.username}</h1>
             </div>
           ))}

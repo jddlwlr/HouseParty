@@ -20,8 +20,7 @@ const NewParty = (props) => {
         variables: { name: formState.name },
       });
       const partyNum = mutationResponse.data.addParty._id;
-      setState({ partyId: partyNum });
-      console.log(state.userId);
+      setState({ currentParty: { name: formState.name, id: partyNum, rules: []} });
     } catch (e) {
       console.log(e);
     }

@@ -130,11 +130,6 @@ nav a:hover {
   justify-content: center;
 }
 
-.container {
-
-}
-
-
 
 /* Login styling */
 
@@ -161,7 +156,9 @@ body {
   max-width: 100%;
   width: auto;
   height: auto;
-
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 section {
@@ -257,7 +254,7 @@ input {
 }
 
 .form-container {
-	position: absolute;
+	/* position: absolute; */
 	top: 0;
 	height: 100%;
 	transition: all 0.6s ease-in-out;
@@ -276,7 +273,7 @@ input {
 .sign-up-container {
 	left: 0;
 	width: 50%;
-	opacity: 0;
+	/* opacity: 0; */
 	z-index: 1;
 }
 
@@ -308,6 +305,7 @@ input {
 	overflow: hidden;
 	transition: transform 0.6s ease-in-out;
 	z-index: 100;
+  display: none;
 }
 
 .container.right-panel-active .overlay-container{
@@ -559,6 +557,12 @@ font-family: 'Grape Nuts', cursive;
   font-family: 'Grape Nuts', cursive;
  
   
+}
+
+.item .party a {
+  padding: 0 !important;
+  text-align: left !important;
+  align-items: initial !important;
 }
 
 

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Context } from "../utils/GlobalState";
 import { useQuery } from "@apollo/client";
 
@@ -7,10 +7,10 @@ import { QUERY_PARTY } from "../utils/queries";
 const Foul = (props) => {
   //   const [formState, setFormState] = useState({ name: "", partyId: "" });
   //   const [addRule, { error }] = useMutation(ADD_RULE);
-  const [state, setState] = useContext(Context);
+  const [state] = useContext(Context);
 
   const { loading, error, data } = useQuery(QUERY_PARTY, {
-    variables: { id: state.partyId },
+    variables: { id: state.currentParty.id },
   });
   if (loading) return "Loading";
   if (error) return `${error.message}`;

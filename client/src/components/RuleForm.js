@@ -17,9 +17,23 @@ const RuleForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const mutationResponse = await addRule({
-        variables: { name: formState.name, partyId: state.partyId },
+      const { data } = await addRule({
+        variables: { name: formState.name, partyId: state.currentParty.id },
       });
+
+      const newRule = data.addRule;
+      const oldRules = state.currentParty.rules || [];
+      setState(
+        {
+          ...state,
+          currentParty: {
+            ...state.currentParty,
+            rules: oldRules.concat(newRule)
+          }
+        }
+      )
+
+      console.log("addRule", data)
     } catch (e) {
       console.log(e);
     }
@@ -32,16 +46,14 @@ const RuleForm = () => {
       [name]: value,
     });
   };
-  if (state.new === false) {
-    return null;
-  }
+  
   return (
     <div>
       <h2>Please enter your trigger foul!</h2>
 
       {Auth.loggedIn() ? (
         <>
-          {state.partyId === "" ? <div></div> : <Foul />}
+          {state.currentParty === null ? <div></div> : <Foul />}
           <form
             className="flex-row justify-center justify-space-between-md align-center"
             id="foulContainer"
