@@ -74,7 +74,7 @@ function App() {
                         <div class="page-content">
                           <Header className="navBarContainer" />
                           <Party /> <NewParty />
-                          <About className="aboutContainer" />
+                          {/* <About className="aboutContainer" /> */}
                         </div>
                         <div className="right-bar">
                           <div className="top-part">

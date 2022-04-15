@@ -4,9 +4,7 @@ import { useQuery } from "@apollo/client";
 
 import { QUERY_PARTY } from "../utils/queries";
 
-const Foul = (props) => {
-  //   const [formState, setFormState] = useState({ name: "", partyId: "" });
-  //   const [addRule, { error }] = useMutation(ADD_RULE);
+const Foul = () => {
   const [state, setState] = useContext(Context);
 
   const { loading, error, data } = useQuery(QUERY_PARTY, {
@@ -19,27 +17,16 @@ const Foul = (props) => {
 
   const ruleList = data?.party.rules || [];
 
-  const listRules = ruleList.map((rule) => <button>{rule.name}</button>);
+  const listRules = ruleList.map((rule) => (
+    <button key={rule.id}>{rule.name}</button>
+  ));
 
-  //   const handleFormSubmit = async (event) => {
-  //     event.preventDefault();
-  //     console.log(state.userId);
-  //     try {
-  //       const mutationResponse = await addRule({
-  //         variables: { name: formState.name, partyId: state.partyId },
-  //       });
-  //     } catch (e) {
-  //       console.log(e);
-  //     }
-  //   };
-
-  //   const handleChange = (event) => {
-  //     const { name, value } = event.target;
-  //     setFormState({
-  //       ...formState,
-  //       [name]: value,
-  //     }):
-  return <>{state.new === true ? <div>{listRules}</div> : <div></div>}</>;
+  return (
+    <>
+      {" "}
+      <div>{listRules}</div>
+    </>
+  );
 };
 
 export default Foul;

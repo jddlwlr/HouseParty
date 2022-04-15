@@ -13,6 +13,7 @@ const RuleForm = () => {
   const [formState, setFormState] = useState({ name: "", partyId: "" });
   const [addRule, { error }] = useMutation(ADD_RULE);
   const [state, setState] = useContext(Context);
+  const [count, setCount] = useState(0);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -22,6 +23,11 @@ const RuleForm = () => {
       });
     } catch (e) {
       console.log(e);
+    } finally {
+      setState({
+        ...state,
+        rule: Math.random(),
+      });
     }
   };
 
@@ -31,6 +37,7 @@ const RuleForm = () => {
       ...formState,
       [name]: value,
     });
+    setCount((count) => count + 1);
   };
   if (state.new === false) {
     return null;

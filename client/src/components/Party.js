@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { rules } from "../rules";
+// import { rules } from "../rules";
+import Foul from "./Foul";
 import Auth from "../utils/auth";
 import { Context } from "../utils/GlobalState";
 //import partyName from "";
@@ -19,13 +20,15 @@ function Party() {
   if (loading) return "Loading";
   if (error) return `${error.message}`;
 
-  //   console.log(data.party.rules);
+  // //   console.log(data.party.rules);
 
-  const ruleList = data?.party.rules || [];
+  // const ruleList = data?.party.rules || [];
 
-  const listRules = ruleList.map((rule) => <button>{rule.name}</button>);
+  // const listRules = ruleList.map((rule) => <button>{rule.name}</button>);
 
-  if (Context.new === true) {
+  // console.log();
+  console.log(state);
+  if (state.new === true) {
     return null;
   }
   return (
@@ -36,7 +39,6 @@ function Party() {
             <div>
               <h2>{data?.party.name}</h2>
               <p>
-                {" "}
                 If any of these events below happen, you will be alerted to take
                 a drink!
               </p>
@@ -45,13 +47,10 @@ function Party() {
             <div className="container">
               <div className="row">
                 <div className="col">
-                  {rules.map((rule) => (
-                    <div className="rules contents row column ">
-                      <button className="triggerBtn" onClick={alert}>
-                        <h1 className="ruleCard">{listRules}</h1>
-                      </button>
-                    </div>
-                  ))}
+                  <div className="rules contents row column ">
+                    {/* {state.partyId === "" ? <div></div> : <Foul />} */}
+                    <Foul />
+                  </div>
                 </div>
               </div>
             </div>
@@ -59,10 +58,7 @@ function Party() {
         </>
       ) : (
         <p>
-          {" "}
-          You need to be logged in play! Please <Link to="/signin">
-            login
-          </Link>{" "}
+          You need to be logged in play! Please <Link to="/signin">login</Link>
           or <Link to="/signUp">signup.</Link>
         </p>
       )}
