@@ -43,10 +43,7 @@ const typeDefs = gql`
     users: [User]
     party(_id: ID!): Party
     user(_id: ID!): User
-<<<<<<< HEAD
     message(id: ID!): Message
-=======
->>>>>>> main
   }
 
   type Mutation {
