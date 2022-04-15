@@ -2,12 +2,12 @@ const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
 const { authMiddleware } = require("./utils/auth");
-// const { GraphQLWsLink } = require("@apollo/client/link/subscriptions");
-const { createClient } = require("graphql-ws");
+const { SubscriptionServer } = require("subscriptions-transport-ws");
+const { execute, subscribe } = require("graphql");
 const { createServer } = require("http");
 const { ApolloServerPluginDrainHttpServer } = require("apollo-server-core");
 const { makeExecutableSchema } = require("@graphql-tools/schema");
-const { WebSocketServer } = require("ws");
+
 const { useServer } = require("graphql-ws/lib/use/ws");
 const typeDefs = require("./schemas/typeDefs");
 const resolvers = require("./schemas/resolvers");
@@ -16,11 +16,10 @@ const schema = makeExecutableSchema({ typeDefs, resolvers });
 const app = express();
 const httpServer = createServer(app);
 
-// const wsLink = new GraphQLWsLink(
-//   createClient({
-//     url: "ws://localhost:4000/subscriptions",
-//   })
-// );
+const subscriptionServer = SubscriptionServer.create(
+  { schema, execute, subscribe },
+  { server: httpServer, path: "/graphql" }
+);
 
 const db = require("./config/connection");
 
@@ -35,6 +34,7 @@ const server = new ApolloServer({
         return {
           async drainServer() {
             await serverCleanup.dispose();
+            subscriptionServer.close();
           },
         };
       },
@@ -43,18 +43,18 @@ const server = new ApolloServer({
   context: authMiddleware,
 });
 
-// Creating the WebSocket server
-const wsServer = new WebSocketServer({
-  // This is the `httpServer` we created in a previous step.
-  server: httpServer,
-  // Pass a different path here if your ApolloServer serves at
-  // a different path.
-  path: "/graphql",
-});
+// // Creating the WebSocket server
+// const wsServer = new WebSocketServer({
+//   // This is the `httpServer` we created in a previous step.
+//   server: httpServer,
+//   // Pass a different path here if your ApolloServer serves at
+//   // a different path.
+//   path: "/graphql",
+// });
 
 // Hand in the schema we just created and have the
 // WebSocketServer start listening.
-const serverCleanup = useServer({ schema }, wsServer);
+// const serverCleanup = useServer({ schema }, wsServer);
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

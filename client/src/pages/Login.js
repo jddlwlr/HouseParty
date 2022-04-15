@@ -18,7 +18,9 @@ function Login(props) {
         variables: { email: formState.email, password: formState.password },
       });
       const token = mutationResponse.data.login.token;
+      console.log(token);
       Auth.login(token);
+      console.log(Auth.loggedIn);
     } catch (e) {
       console.log(e);
     }
@@ -34,7 +36,7 @@ function Login(props) {
 
   return (
     <div className="container" id="container">
-      <div className="form-container sign-up-container">
+      {/* <div className="form-container sign-up-container">
         <form onSubmit={handleFormSubmit}>
           <span>or use your email for registration</span>
           <input
@@ -60,7 +62,7 @@ function Login(props) {
           />
           <button>Sign Up</button>
         </form>
-      </div>
+      </div> */}
       <div className="form-container sign-in-container">
         <form onSubmit={handleFormSubmit}>
           <h1>Sign in</h1>
@@ -81,9 +83,7 @@ function Login(props) {
           />
           {error ? (
             <div>
-              <p className="error-text">
-                The provided credentials are incorrect
-              </p>
+              <p className="error-text"></p>
             </div>
           ) : null}
 
