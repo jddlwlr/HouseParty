@@ -16,7 +16,6 @@ function Signup(props) {
         email: formState.email,
         password: formState.password,
         username: formState.username,
-        lastName: formState.lastName,
       },
     });
     const token = mutationResponse.data.addUser.token;
@@ -46,14 +45,14 @@ function Signup(props) {
           <input
             type="email"
             name="email"
-            id="user_email"
+            id="email"
             placeholder="Email"
             onChange={handleChange}
           />
           <input
             type="password"
-            name="assword"
-            id="user_password"
+            name="password"
+            id="password"
             placeholder="Password"
             onChange={handleChange}
           />

@@ -7,7 +7,7 @@ import profile from "../images/profile.png";
 import { Context } from "../utils/GlobalState";
 import { QUERY_USER } from "../utils/queries";
 import { useQuery } from "@apollo/client";
-import auth from "../utils/auth";
+// import auth from "../utils/auth";
 // import { find, findById } from "../../../server/models/Rule";
 // import { assertValidSchema } from "graphql";
 // import { from } from "@apollo/client";
@@ -18,8 +18,9 @@ function User() {
   const [state, setState] = useContext(Context);
 
   const { loading, data } = useQuery(QUERY_USER, {
-    variables: { id: auth.getProfile().data._id },
+    variables: { id: Auth.getProfile().data._id },
   });
+  console.log();
 
   const partyClick = (id, e) => {
     setState({
@@ -63,7 +64,7 @@ function User() {
               <img src={cinco} alt="Cinco De Mayo " className="profilePic" />
             </div>
 
-            <h3 className="username">{auth.getProfile().data.username}</h3>
+            <h3 className="username">{Auth.getProfile().data.username}</h3>
 
             <h2 className="updates">Upcoming/Live Parties</h2>
             <div>
