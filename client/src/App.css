@@ -39,6 +39,8 @@
 
 :root {
   background-color: #FF416C;
+  --playful:fuchsia;
+   
 }
 
 html {
@@ -51,42 +53,62 @@ body {
   min-height: 100vh;
   justify-content: flex-start;
   background-color: wheat;
+  font-size: 20px;
 }
 
 #partyFoul {
 
-color:#FF4B2B;
+color:white;
+text-shadow: fuchsia 2px 5px;
 text-align: center;
 font-weight: bold;
-font-size: 50px;
-font-family: Georgia, 'Times New Roman', Times, serif;
-}
+font-size: 90px;
+font-family: 'Sedgwick Ave Display', cursive;
+align-items: center;
+vertical-align: center;
+
+
+} 
+
+
+
+
 
 /* navigation */
-nav {
+.navbar {
   display: flex;
   justify-content: space-evenly;
-  justify-content: flex-end;
-  
+  justify-content: center;
+  margin-bottom: 30px;
   max-width: 100%;
   width: auto;
   height: auto;
+  align-items: center;
+  color: white;
+
 
 }
 
-nav a {
-  color:#FF4B2B;
-  font-size: 15px;
+
+.navbar a {
+  color:white;
+  font-size: 20px;
   padding: 14px 20px;
+  margin-bottom: 30px;
   text-decoration: none;
   text-align: center;
   font-weight: bold;
+  text-align: center;
+  align-items: center;
 }
 
-nav a:hover {
-  background-color: aqua;
-  color:#FF4B2B;
+.navbar a:hover {
+  background-color: fuchsia;
+  color: white;
+  border-radius: 15px;
 }
+
+
 
 /*User Container*/
 
@@ -100,15 +122,28 @@ nav a:hover {
   margin: auto;
   text-align: center;
   padding: 14px 20px;
-  color:  #FF4B2B;
-  cursor: pointer;
+  color: blueviolet;
   font-weight: bold;
+  
 }
 
+#user ul {
+  list-style-type: none;
+}
+
+
+
+#funFacts li {
+  list-style-type: none;
+  font-size: 16px;
+  font-family: Georgia, 'Times New Roman', Times, serif ;
+  line-height: 2.5;
+}
 #user a:hover {
 
-  background-color: aqua;
-  color: black;
+  background-color: blueviolet;
+  color: white;
+  border-radius: 15px;
 }
 /* game area*/
 
@@ -120,9 +155,7 @@ nav a:hover {
   justify-content: center;
 }
 
-.container {
 
-}
 
 
 
@@ -145,7 +178,18 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	height: 100vh;
 	margin: -20px 0 50px;
+  text-align: center;
+  font-size: 16px;
+  
 }
+
+body .stars {
+  color: white;
+  font-size: 20px;
+}
+/* footer text */
+
+
 
 .container {
   max-width: 100%;
@@ -176,6 +220,7 @@ p {
 	line-height: 20px;
 	letter-spacing: 0.5px;
 	margin: 20px 0 30px;
+
 }
 
 span {
@@ -191,8 +236,8 @@ a {
 
 button {
 	border-radius: 20px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
+	border: 1px solid white;
+	background-color: blueviolet;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -200,6 +245,11 @@ button {
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
+}
+
+button:hover {
+  background-color: fuchsia;
+  color: white;
 }
 
 button:active {
@@ -213,6 +263,11 @@ button:focus {
 button.ghost {
 	background-color: transparent;
 	border-color: #FFFFFF;
+}
+
+button.ghost:hover {
+  background-color: white;
+  color:fuchsia;
 }
 
 form {
@@ -237,7 +292,7 @@ input {
 .containerLogin {
 	background-color: #fff;
 	border-radius: 10px;
-  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
 			0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
 	overflow: hidden;
@@ -306,8 +361,8 @@ input {
 
 .overlay {
 	background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background: -webkit-linear-gradient(to right, blueviolet, #FF416C);
+	background: linear-gradient(to right, blueviolet, #FF416C);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -316,7 +371,7 @@ input {
 	left: -100%;
 	height: 100%;
 	width: 200%;
-  	transform: translateX(0);
+  transform: translateX(0);
 	transition: transform 0.6s ease-in-out;
 }
 
@@ -374,6 +429,20 @@ input {
 
 /*dashboard */
 
+.profilePic {
+  border-radius: 20px;
+  display: flex;
+  
+  
+}
+.partyBtn {
+  margin-bottom: 60px;
+}
+
+.partyTime {
+  border-radius: 20px;
+}
+
 
 flex {
   display: flex;
@@ -395,14 +464,16 @@ body {
 }
 
 .task-manager {
+  
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: 100%;
+  max-width: 1200px;
+  margin-top: 10px;
   height: 90vh;
   max-height: 900px;
-  background: #fff;
-  border-radius: 4px;
+  background:lavenderblush;
+  border-radius: 20px;
   box-shadow:
   0 0.3px 2.2px rgba(0, 0, 0, 0.011),
   0 0.7px 5.3px rgba(0, 0, 0, 0.016),
@@ -413,12 +484,16 @@ body {
   overflow: hidden;
 }
 .left-bar {
-  background-color: var(--bg-color);
-  width: 230px;
+ 
+  width: auto;
   border-right: 1px solid #e3e7f7;
   position: relative;
 }
-.left-content { padding: 40px; }
+.left-content { 
+  padding: 40px; 
+  display: auto;
+  flex-direction: column;
+  }
 
 .item {
   @extend %flex;
@@ -427,6 +502,34 @@ body {
   font-weight: 500;
 
 }
+
+.item a {
+text-align: center;
+}
+
+.item button{
+
+  border-radius: 15px;
+	border: none;
+  font-size:14px;
+	color:blueviolet;
+  background-color: transparent;
+	font-weight: bold;
+  font-family: 'Grape Nuts', cursive;
+  text-transform:capitalize;
+  padding: 14px 20px;
+	letter-spacing: 1px;
+  
+ 
+  
+}
+
+.item button:hover {
+  color: white;
+  background-color: blueviolet;
+}
+
+
 .page-content {
   display: flex;
   flex-direction: column;
@@ -451,6 +554,26 @@ body {
   overflow-y: auto;
   flex: 1;
 }
+.tasks-wrapper {
+  padding: 30px 0;
+  flex: 1;
+  overflow-y: auto;
+  height: 100%;
+  padding-right: 8px;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 16px;
+  padding-left: 30px;
+  font-size: 13px;
+  font-weight: 500;
+  align-content: center;
+  flex-direction: column;
+
+}
 
 #live {
   align-items: center;
@@ -460,4 +583,187 @@ body {
   text-align: center;
   max-width: auto;
   height: auto;
+  color: blueviolet;
+  font-size: 14px;
+  font-family: 'Grape Nuts', cursive;
+}
+
+#live p {
+  font-size: 23px;
+  font-family: 'Grape Nuts', cursive;
+
+}
+
+#liveParty {
+  color: fuchsia;
+  text-decoration: underline;
+  font-size: 30px;
+}
+
+.welcome {
+  align-items: center;
+  vertical-align:middle;
+  text-align: center;
+}
+
+.welcome h1 {
+  font-size: 40px;
+  color: fuchsia;
+  text-shadow: blueviolet 2px 3px;
+  animation: flash infinite infinite none infinite all all;
+}
+@keyframes flash {
+  from {color: fuchsia; text-shadow: blueviolet;} to
+  {color: blueviolet; text-shadow: fuchsia}
+  
+}
+
+
+
+/* User Info --Left Panel */
+
+.username {
+font-size: 20px;
+font-family: 'Grape Nuts', cursive;
+ color: blueviolet;
+ align-items: center;
+ vertical-align: auto;
+ text-align: center;
+}
+
+.profilePic {
+  margin: auto;
+  max-width: 100px;
+  height: auto;
+}
+.item a {
+  text-decoration: none;
+  text-align: center;
+  align-items: center;
+  
+  font-family: 'Grape Nuts', cursive;
+ 
+  
+}
+
+
+.item a::marker {
+display: none;
+}
+
+.updates {
+  font-family: 'Grape Nuts', cursive;
+  color: fuchsia;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+
+
+/* Party */
+
+.contents {
+ text-align: center;
+  padding: 25px;
+  margin: auto;
+
+ 
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+#createParty  {
+  color: blueviolet;
+  font-family: 'Grape Nuts', cursive;
+  font-size: 15px;
+
+}
+
+/* new party container */
+
+#newParty {
+  background:lavenderblush; 
+}
+
+#foulContainer {
+  background:lavenderblush; 
+}
+
+
+
+
+button {
+  border:white;
+  border-radius: 15px;
+  background-color: blueviolet;
+  color: white;
+
+
+}
+
+button a:hover {
+  background-color: fuchsia;
+  color: white;
+}
+
+button a {
+  text-decoration: none;
+  
+}
+
+#foulContainer button {
+  border:white;
+  border-radius: 15px;
+  background-color: blueviolet;
+  color: white;
+}
+#foulContainer button:hover {
+  background-color: fuchsia;
+  color: white;
+}
+
+.history h1 {
+  color: blueviolet;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 36px;
+}
+
+.history p {
+  font-size: 20px;
+  line-height: 1.5;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font: weight 500px;;
+}
+
+#rulebook {
+  border-radius: 100px;
+  image-rendering:optimizeQuality;
+  vertical-align: center;
+  align-items: center;
+  
+}
+
+/* For desktop: */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
 }

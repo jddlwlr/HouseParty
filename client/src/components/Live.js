@@ -6,13 +6,13 @@ function Live() {
     <section>
       <div className="container" id="live">
         <div>
-          <h2>Live Party</h2>
+          <h2 id="liveParty">Live Party</h2>
           <p> Participants</p>
         </div>
 
         <div>
           {users.map((user) => (
-            <div className="rules contents ">
+            <div className="rules participants ">
               <h1 className="ruleCard">{user.username}</h1>
             </div>
           ))}

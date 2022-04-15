@@ -1,38 +1,72 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from "@apollo/client";
+
+import { setContext } from "@apollo/client/link/context";
+import Auth from "./utils/auth";
+
 import "./App.css";
 import Header from "./components/Header";
-import About from "./components/About";
-import Party from "./components/Party";
-import User from "./components/User";
-import Live from "./components/Live";
-import Footer from "./components/Footer";
+import CreateParty from "./pages/CreateParty";
 
-//import Login from "./components/Login";
+import LiveParty from "./pages/LiveParty";
+import Footer from "./components/Footer";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+import Info from "./pages/Info";
+
+import Signup from "./pages/Signup";
+import NewParty from "./components/NewParty";
+import Store from "./utils/GlobalState";
+
+const httpLink = createHttpLink({
+  uri: "/graphql",
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem("id_token");
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
+
 //import LoggingIn from "./LoggingIn";
 function App() {
   return (
-    <div className="App">
-      <div class="task-manager">
-        <div class="left-bar">
-          <div class="upper-part">
-            <div class="actions"></div>
-          </div>
-          <div class="left-content">
-            <User className="userContainer" />
-          </div>
-        </div>
-        <div class="page-content">
-          <Header className="navBarContainer" />
-          <Party class="partyContainer" />
-          <About class="aboutContainer" />
-        </div>
-        <div class="right-bar">
-          <div class="top-part">
-            <Live class="liveContainer" />
-          </div>
-        </div>
-      </div>
-      <Footer class="footerContainer" />
-    </div>
+    <ApolloProvider client={client}>
+      <Router>
+        <Store>
+          <Header />
+          <div className="task-manager">
+            {Auth.loggedIn() ? <></> : <Login />}
+            {console.log(Store)}
+
+            <Routes>
+              <Route path="/party" element={<LiveParty />} />
+              <Route path="/create" element={<CreateParty />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<Info />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+            </Routes>
+          </div>{" "}
+          <Footer />
+        </Store>
+      </Router>
+    </ApolloProvider>
   );
 }
 
