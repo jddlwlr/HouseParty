@@ -1,8 +1,8 @@
-import NewParty from "../components/NewParty";
-import User from "../components/User";
-import ruleBook from "../images/ruleBook.jpg";
+import Party from "../components/Party";
 
-const CreateParty = () => {
+import Live from "../components/Live";
+
+const LiveParty = () => {
   return (
     <main>
       <div className="App">
@@ -11,15 +11,13 @@ const CreateParty = () => {
             <div className="upper-part">
               <div className="actions"></div>
             </div>
-            <div className="left-content">
-              <User />
-            </div>
+            <div className="left-content"></div>
           </div>
           <div className="page-content">
-            <NewParty />
+            <Party />
           </div>
           <div className="right-bar">
-            <img src={ruleBook} alt="rulebook" id="rulebook" />
+            <Live />
           </div>
         </div>
       </div>
@@ -27,4 +25,4 @@ const CreateParty = () => {
   );
 };
 
-export default CreateParty;
+export default LiveParty;

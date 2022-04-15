@@ -6,6 +6,7 @@ import {
   ApolloProvider,
   createHttpLink,
 } from "@apollo/client";
+
 import { setContext } from "@apollo/client/link/context";
 import Auth from "./utils/auth";
 
@@ -13,7 +14,7 @@ import "./App.css";
 import Header from "./components/Header";
 import CreateParty from "./pages/CreateParty";
 
-import Party from "./components/Party";
+import LiveParty from "./pages/LiveParty";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
@@ -54,7 +55,7 @@ function App() {
             {console.log(Store)}
 
             <Routes>
-              <Route path="/party" element={<Party />} />
+              <Route path="/party" element={<LiveParty />} />
               <Route path="/create" element={<CreateParty />} />
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<Info />} />

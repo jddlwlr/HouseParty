@@ -607,10 +607,17 @@ text-align: center;
 }
 
 .welcome h1 {
-  font-size: 35px;
+  font-size: 40px;
   color: fuchsia;
   text-shadow: blueviolet 2px 3px;
+  animation: flash infinite infinite none infinite all all;
 }
+@keyframes flash {
+  from {color: fuchsia; text-shadow: blueviolet;} to
+  {color: blueviolet; text-shadow: fuchsia}
+  
+}
+
 
 
 /* User Info --Left Panel */
