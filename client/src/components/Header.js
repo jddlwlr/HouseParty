@@ -11,12 +11,12 @@ function Header() {
       <br></br>
       <nav>
         <div className="container">
-          <div>
-            <a href="#profile">Profile</a>
+          <div className="navbar">
+            <a href="#home">Home</a>
 
-            <a href="#live_parties">Live Parties</a>
+            <a href="#liveParty">Live Parties</a>
 
-            <a href="#new_party">New Party</a>
+            <a href="#createParty">New Party</a>
 
             <a href="#about">About</a>
           </div>
