@@ -21,7 +21,7 @@ const Home = () => {
             <h2 className="title" id="partyWelcome">
               Party Foul!
             </h2>
-            <p className="">Where the party finds to you!!</p>
+            <p className="">Where the party finds you!!</p>
             <div>
               <button className="partyBtn">
                 Let's Party!!
