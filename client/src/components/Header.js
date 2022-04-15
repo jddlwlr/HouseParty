@@ -7,8 +7,6 @@ function Header() {
         Party Foul
       </h1>
 
-      <br></br>
-      <br></br>
       <nav>
         <div className="container">
           <div className="navbar">
