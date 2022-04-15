@@ -1,7 +1,8 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { isConstValueNode } = require("graphql");
-const { User, Party, Rule } = require("../models");
+const { User, Party, Rule, Message } = require("../models");
 const { signToken } = require("../utils/auth");
+const { PubSub } = require("graphql-subscriptions");
 
 const resolvers = {
   Query: {
@@ -23,6 +24,9 @@ const resolvers = {
       return party;
       // console.log({ ...party });
     },
+    message: (_, { ID }) => {
+      Message.findById(ID);
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -43,7 +47,26 @@ const resolvers = {
       }
       throw new AuthenticationError("Not logged in");
     },
+    createMessage: async (_, { messageInput: { text, username } }) => {
+      const newMessage = new Message({
+        text: text,
+        createdBy: username,
+      });
 
+      const res = await newMessage.save();
+
+      PubSub.publish("MESSAGE_CREATED", {
+        messageCreated: {
+          text: text,
+          createdBy: username,
+        },
+      });
+
+      return {
+        id: res.id,
+        ...res._doc,
+      };
+    },
     addRule: async (parent, { name, partyId }) => {
       const rule = await Rule.create({ name });
 
@@ -69,6 +92,11 @@ const resolvers = {
       const token = signToken(user);
       console.log("you are logged in");
       return { token, user };
+    },
+  },
+  Subscription: {
+    messageCreated: {
+      subscribe: () => PubSub.asynciterator("MESSAGE_CREATED"),
     },
   },
 };
