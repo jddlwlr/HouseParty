@@ -105,7 +105,7 @@ function Login(props) {
             <h1>Hello, Friend!</h1>
             <p>Enter your personal details and start journey with us</p>
             <Link to="/signup">
-              <button className="ghost" id="signUp">
+              <button className="ghost" id="signUp" a href="/signup">
                 Sign Up
               </button>
             </Link>
