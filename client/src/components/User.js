@@ -73,7 +73,9 @@ function User() {
                   <a href="#invites">My Invites</a>
                 </li>
                 <li className="item partyClick">
-                  <button onClick={handleClick}>New Party</button>
+                  <button a href="#newParty" onClick={handleClick}>
+                    New Party
+                  </button>
                 </li>
                 <li className="item">
                   <a href="#myParties">My Parties</a>

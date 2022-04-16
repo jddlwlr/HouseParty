@@ -1,4 +1,5 @@
 import React from "react";
+import rulebook from "../images/ruleBook.jpg";
 
 const About = () => {
   return (
@@ -7,6 +8,9 @@ const About = () => {
         <div className="">
           <div className="about">
             <h1 className="info">About Party Foul </h1>
+          </div>
+          <div>
+            <img src={rulebook} alt="party rules" id="rulebook" />
           </div>
           <div></div>
         </div>

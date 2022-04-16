@@ -44,13 +44,13 @@ function Party() {
 
             <div className="container">
               <div className="row justify-content-col-md-center">
-                {rules.map((rule) => (
+                
                   <div className="rules partyTrigger col col-md-auto">
-                    <button className="triggerBtn" onClick={alert}>
-                      <h1 className="ruleCard partyTrigger">{listRules}</h1>
+                    <button className="triggerBtn" onClick={alert(${rule.name} 'Drink!')}>
+                      <h1 className="ruleCard triggerBtn">{listRules}</h1>
                     </button>
                   </div>
-                ))}
+                
               </div>
             </div>
           </div>

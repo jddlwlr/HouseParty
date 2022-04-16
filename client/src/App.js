@@ -20,6 +20,7 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 
 import User from "./components/User";
+import Animation from "./components/Animation";
 
 import Signup from "./pages/Signup";
 import NewParty from "./components/NewParty";
@@ -74,6 +75,7 @@ function App() {
             <div className="right-bar">
               <div className="right-content">
                 <RuleForm key="ruleTriggers" />
+                <Animation key="animation" />
               </div>
             </div>
 

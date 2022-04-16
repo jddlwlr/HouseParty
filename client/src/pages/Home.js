@@ -21,7 +21,7 @@ const Home = () => {
               <p className="">Where the party finds you!!</p>
               <div>
                 <a href="/party">
-                  <button className="partyBtn">
+                  <button a href="#newParty" className="partyBtn">
                     Let's Party!!
                     <span className=""></span>
                   </button>
