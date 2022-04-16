@@ -32,7 +32,7 @@ function Party() {
     <section>
       {Auth.loggedIn() ? (
         <>
-          <div className="container" id="">
+          <div className="container" id="liveParty">
             <div>
               <h2>{data?.party.name}</h2>
               <p>
