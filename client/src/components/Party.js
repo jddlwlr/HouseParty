@@ -17,7 +17,7 @@ function Party() {
     variables: { id: state.partyId },
   });
   if (loading) return "Loading";
-  if (error) return `${error.message}`;
+  // if (error) return `${error.message}`;
 
   //   console.log(data.party.rules);
 
@@ -32,7 +32,7 @@ function Party() {
     <section>
       {Auth.loggedIn() ? (
         <>
-          <div className="container" id="liveParty">
+          <div className="container " id="liveParty">
             <div>
               <h2>{data?.party.name}</h2>
               <p>
@@ -43,16 +43,14 @@ function Party() {
             </div>
 
             <div className="container">
-              <div className="row">
-                <div className="col">
-                  {rules.map((rule) => (
-                    <div className="rules contents row column ">
-                      <button className="triggerBtn" onClick={alert}>
-                        <h1 className="ruleCard">{listRules}</h1>
-                      </button>
-                    </div>
-                  ))}
-                </div>
+              <div className="row justify-content-col-md-center">
+                {rules.map((rule) => (
+                  <div className="rules partyTrigger col col-md-auto">
+                    <button className="triggerBtn" onClick={alert}>
+                      <h1 className="ruleCard partyTrigger">{listRules}</h1>
+                    </button>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

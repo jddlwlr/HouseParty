@@ -12,7 +12,7 @@ const Home = () => {
         window.location.assign("/Login")
       ) : (
         <>
-          <div className="page-content" id="homepage">
+          <div className=" " id="home">
             <div className="welcome">
               <h1 className="greeting">Welcome to</h1>
               <h2 className="title" id="partyWelcome">

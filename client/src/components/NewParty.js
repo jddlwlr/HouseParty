@@ -48,7 +48,7 @@ const NewParty = (props) => {
             id="newParty"
             onSubmit={handleFormSubmit}
           >
-            <div className="col-12 col-lg-9" id="createParty">
+            <div className="col-12 col-lg-9 " id="createParty">
               <h1>Create a new Party </h1>
               <input
                 type="text"
