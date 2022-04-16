@@ -66,6 +66,7 @@ font-size: 90px;
 font-family: 'Sedgwick Ave Display', cursive;
 align-items: center;
 vertical-align: center;
+margin-top: 250px;
 
 
 } 
@@ -79,7 +80,7 @@ vertical-align: center;
   display: flex;
   justify-content: space-evenly;
   justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 5px;
   max-width: 100%;
   width: auto;
   height: auto;
@@ -94,7 +95,7 @@ vertical-align: center;
   color:white;
   font-size: 20px;
   padding: 14px 20px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   text-decoration: none;
   text-align: center;
   font-weight: bold;
@@ -268,7 +269,8 @@ button:focus {
 
 button.ghost {
 	background-color: transparent;
-	border-color: #FFFFFF;
+  color: white;
+
 }
 
 button.ghost:hover {
@@ -447,6 +449,7 @@ input {
 
 .partyTime {
   border-radius: 20px;
+  max-width: auto;
 }
 
 
@@ -492,7 +495,7 @@ body {
 }
 .left-bar {
  
-  width: auto;
+  width: 350px;
   border-right: 1px solid #e3e7f7;
   position: relative;
 }
@@ -542,8 +545,16 @@ text-align: center;
   flex-direction: column;
   flex: 1;
   padding: 40px 20px 0 20px;
-
+  scroll-behavior: auto;
+  overflow-y: scroll;
+ 
 }
+
+.page-content::-webkit-scrollbar {
+  display:none;
+}
+
+
 
 .right-bar {
   width: 320px;
@@ -557,7 +568,7 @@ text-align: center;
   align-self: flex-end;
 }
 .right-content {
-  padding: 10px 40px;
+  padding: 10px 25px;
   overflow-y: auto;
   flex: 1;
 }
@@ -670,8 +681,9 @@ display: none;
 
 /* Party */
 
-.contents {
+.partyTrigger {
  text-align: center;
+ line-height: 3.5;
   padding: 25px;
   margin: auto;
 
@@ -757,6 +769,13 @@ button a {
   background-color: lavenderblush;
   
 }
+
+#home {
+  margin-top: 30px;
+margin-bottom: 200px;
+}
+
+
 
 /* For desktop: */
 .col-1 {width: 8.33%;}

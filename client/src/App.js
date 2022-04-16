@@ -51,7 +51,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Store>
-          <Header />
+          <Header key="navHeader" />
           <div className="task-manager">
             {Auth.loggedIn() ? <></> : <Login />}
             {console.log(Store)}
@@ -61,15 +61,19 @@ function App() {
               </div>
             </div>
 
-            <div className="page-content">
-              <Home />
-              <Party />
-              <NewParty />
-              <About />
+            <div className="page-content ">
+              <Home id="home" />
+              <div></div>
+              <Party key="liveParty" />
+              <div></div>
+              <NewParty key="createParty" />
+              <div></div>
+              <div></div>
+              <About key="aboutParty" />
             </div>
             <div className="right-bar">
               <div className="right-content">
-                <RuleForm />
+                <RuleForm key="ruleTriggers" />
               </div>
             </div>
 
