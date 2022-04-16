@@ -57,6 +57,7 @@ const typeDefs = gql`
 
   type Subscription {
     messageCreated: Message
+    ruleAdded: Rule!
   }
 `;
 

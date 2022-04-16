@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   ApolloClient,
@@ -23,65 +23,67 @@ import User from "./components/User";
 
 import Signup from "./pages/Signup";
 import NewParty from "./components/NewParty";
-import Store from "./utils/GlobalState";
+import Store, { Context } from "./utils/GlobalState";
 import RuleForm from "./components/RuleForm";
 
-const httpLink = createHttpLink({
-  uri: "/graphql",
-});
+// const httpLink = createHttpLink({
+//   uri: "/graphql",
+// });
 
-const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem("id_token");
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : "",
-    },
-  };
-});
+// const authLink = setContext((_, { headers }) => {
+//   const token = localStorage.getItem("id_token");
+//   return {
+//     headers: {
+//       ...headers,
+//       authorization: token ? `Bearer ${token}` : "",
+//     },
+//   };
+// });
 
-const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
-});
+// const client = new ApolloClient({
+//   link: authLink.concat(httpLink),
+//   cache: new InMemoryCache(),
+// });
 
 //import LoggingIn from "./LoggingIn";
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <Router>
-        <Store>
-          <Header />
-          <div className="task-manager">
-            {Auth.loggedIn() ? <></> : <Login />}
-            {console.log(Store)}
-            <div className="left-bar">
-              <div className="left-content">
-                <User />
+    // <ApolloProvider client={client}>
+    <Router>
+      <Store>
+        <Header />
+        <div className="task-manager">
+          {Auth.loggedIn() ? (
+            <>
+              <div className="left-bar">
+                <div className="left-content">
+                  <User />
+                </div>
               </div>
-            </div>
-
-            <div className="page-content">
-              <Home />
-              <Party />
-              <NewParty />
-              <About />
-            </div>
-            <div className="right-bar">
-              <div className="right-content">
-                <RuleForm />
+              <div className="page-content">
+                {/* <Home /> */}
+                <Party />
+                <NewParty />
+                {/* <About /> */}
               </div>
-            </div>
-
-            <Routes>
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-            </Routes>
-          </div>{" "}
-          <Footer />
-        </Store>
-      </Router>
-    </ApolloProvider>
+              <div className="right-bar">
+                <div className="right-content">
+                  <RuleForm />
+                </div>
+              </div>
+              <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+              </Routes>
+            </>
+          ) : (
+            <Login />
+          )}
+        </div>
+        <Footer />
+      </Store>
+    </Router>
+    // </ApolloProvider>
   );
 }
 

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { split, HttpLink, ApolloLink, concat } from "@apollo/client";
+import { split, HttpLink, ApolloLink, concat, PubSub } from "@apollo/client";
 import { WebSocketLink } from "@apollo/client/link/ws";
 import { getMainDefinition } from "@apollo/client/utilities";
 import { ApolloClient, InMemoryCache } from "@apollo/client";
@@ -14,24 +14,7 @@ import { setContext } from "@apollo/client/link/context";
 const httpLink = new HttpLink({
   uri: "http://localhost:3001/graphql",
 });
-
-const wsLink = new WebSocketLink({
-  uri: "ws://localhost:3001/graphql",
-  options: {
-    reconnect: true,
-  },
-});
-
-// const token = localStorage.getItem("id_token");
-
-// const authLink = new ApolloLink((operation, forward) => {
-//   operation.setContext({
-//     headers: {
-//       authorization: token ? `Bearer ${token}` : "",
-//     },
-//   });
-//   return forward(operation);
-// });
+const token = localStorage.getItem("id_token");
 
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("id_token");
@@ -43,6 +26,25 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
+const wsLink = new WebSocketLink({
+  uri: "ws://localhost:3001/graphql",
+  options: {
+    reconnect: true,
+    connectionParams: {
+      authToken: token,
+    },
+  },
+});
+
+// const authLink = new ApolloLink((operation, forward) => {
+//   operation.setContext({
+//     headers: {
+//       authorization: token ? `Bearer ${token}` : "",
+//     },
+//   });
+//   return forward(operation);
+// });
+
 const splitLink = split(
   ({ query }) => {
     const definition = getMainDefinition(query);
@@ -52,12 +54,18 @@ const splitLink = split(
     );
   },
   wsLink,
-  httpLink
+  authLink.concat(httpLink)
 );
 
 const client = new ApolloClient({
-  link: concat(splitLink, authLink),
-  cache: new InMemoryCache(),
+  link: splitLink,
+  cache: new InMemoryCache({
+    typePolicies: {
+      Link: {
+        keyFields: ["id"],
+      },
+    },
+  }),
 });
 
 ReactDOM.render(

@@ -3,7 +3,7 @@ const { isConstValueNode } = require("graphql");
 const { User, Party, Rule, Message } = require("../models");
 const { signToken } = require("../utils/auth");
 const { PubSub } = require("graphql-subscriptions");
-
+const PubSub = new PubSub();
 const resolvers = {
   Query: {
     users: async (parent, args) => {
@@ -69,9 +69,17 @@ const resolvers = {
     },
     addRule: async (parent, { name, partyId }) => {
       const rule = await Rule.create({ name });
-
       await Party.findByIdAndUpdate(partyId, {
         $push: { rules: rule },
+      });
+
+      const res = await rule.save();
+
+      PubSub.publish("RULE_ADDED", {
+        ruleAdded: {
+          createdBy: username,
+          alert: alert,
+        },
       });
       return rule;
     },
@@ -97,6 +105,9 @@ const resolvers = {
   Subscription: {
     messageCreated: {
       subscribe: () => PubSub.asynciterator("MESSAGE_CREATED"),
+    },
+    ruleAdded: {
+      subscribe: (_, args, { PubSub }) => {},
     },
   },
 };

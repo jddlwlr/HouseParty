@@ -7,6 +7,7 @@ const { execute, subscribe } = require("graphql");
 const { createServer } = require("http");
 const { ApolloServerPluginDrainHttpServer } = require("apollo-server-core");
 const { makeExecutableSchema } = require("@graphql-tools/schema");
+// const { PubSub } = require("apollo-server");
 
 const { useServer } = require("graphql-ws/lib/use/ws");
 const typeDefs = require("./schemas/typeDefs");
@@ -15,7 +16,7 @@ const resolvers = require("./schemas/resolvers");
 const schema = makeExecutableSchema({ typeDefs, resolvers });
 const app = express();
 const httpServer = createServer(app);
-
+// const pubsub = new PubSub();
 const subscriptionServer = SubscriptionServer.create(
   { schema, execute, subscribe },
   { server: httpServer, path: "/graphql" }
