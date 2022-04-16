@@ -45,7 +45,7 @@ const NewParty = (props) => {
         <>
           <form
             className="flex-row justify-center justify-space-between-md align-center"
-            id="newParty"
+            id="#newParty"
             onSubmit={handleFormSubmit}
           >
             <div className="col-12 col-lg-9 " id="createParty">

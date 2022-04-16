@@ -43,7 +43,8 @@ const RuleForm = () => {
         <>
           {state.partyId === "" ? <div></div> : <Foul />}
           <form
-            className="flex-row justify-center justify-space-between-md align-center"
+            className="form-control"
+            rows="3"
             id="foulContainer"
             onSubmit={handleFormSubmit}
           >

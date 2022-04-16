@@ -20,6 +20,7 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 
 import User from "./components/User";
+import Animation from "./components/Animation";
 
 import Signup from "./pages/Signup";
 import NewParty from "./components/NewParty";
@@ -53,6 +54,37 @@ function App() {
         <Store>
           <Header key="navHeader" />
           <div className="task-manager">
+<<<<<<< HEAD
+            {Auth.loggedIn() ? <></> : <Login />}
+            {console.log(Store)}
+            <div className="left-bar">
+              <div className="left-content">
+                <User />
+              </div>
+            </div>
+
+            <div className="page-content ">
+              <Home id="home" />
+              <div></div>
+              <Party key="liveParty" />
+              <div></div>
+              <NewParty key="createParty" />
+              <div></div>
+              <div></div>
+              <About key="aboutParty" />
+            </div>
+            <div className="right-bar">
+              <div className="right-content">
+                <RuleForm key="ruleTriggers" />
+                <Animation key="animation" />
+              </div>
+            </div>
+
+            <Routes>
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+            </Routes>
+=======
             {Auth.loggedIn() ? (
               <>
                 <div className="left-bar">
@@ -83,6 +115,7 @@ function App() {
             ) : (
               <Login />
             )}
+>>>>>>> 9cb0a42317150ebee6a7574c665e81bb46435259
           </div>{" "}
           <Footer />
         </Store>
