@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -13,10 +12,10 @@ function Header() {
       <nav>
         <div className="container">
           <div className="navbar">
-            <Link to="/">Home </Link>
-            <Link to="/party">Live Party</Link>
-            <Link to="/create">New Party</Link>
-            <Link to="/about">About</Link>
+            <a href="#home">Home </a>
+            <a href="#liveParty">Live Party</a>
+            <a href="#createParty">New Party</a>
+            <a href="#about">About</a>
           </div>
         </div>
       </nav>

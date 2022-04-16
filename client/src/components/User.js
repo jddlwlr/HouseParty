@@ -59,7 +59,7 @@ function User() {
     <section>
       <>
         {Auth.loggedIn() ? (
-          <div className="container" id="user">
+          <div className="left-content" id="user">
             <div className="userimage">
               <img src={cinco} alt="Cinco De Mayo " className="profilePic" />
             </div>
