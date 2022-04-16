@@ -53,34 +53,36 @@ function App() {
         <Store>
           <Header key="navHeader" />
           <div className="task-manager">
-            {Auth.loggedIn() ? <></> : <Login />}
-            {console.log(Store)}
-            <div className="left-bar">
-              <div className="left-content">
-                <User />
-              </div>
-            </div>
-
-            <div className="page-content ">
-              <Home id="home" />
-              <div></div>
-              <Party key="liveParty" />
-              <div></div>
-              <NewParty key="createParty" />
-              <div></div>
-              <div></div>
-              <About key="aboutParty" />
-            </div>
-            <div className="right-bar">
-              <div className="right-content">
-                <RuleForm key="ruleTriggers" />
-              </div>
-            </div>
-
-            <Routes>
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-            </Routes>
+            {Auth.loggedIn() ? (
+              <>
+                <div className="left-bar">
+                  <div className="left-content">
+                    <User />
+                  </div>
+                </div>
+                <div className="page-content ">
+                  <Home id="home" />
+                  <div></div>
+                  <Party key="liveParty" />
+                  <div></div>
+                  <NewParty key="createParty" />
+                  <div></div>
+                  <div></div>
+                  <About key="aboutParty" />
+                </div>
+                <div className="right-bar">
+                  <div className="right-content">
+                    <RuleForm key="ruleTriggers" />
+                  </div>
+                </div>
+                <Routes>
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/signup" element={<Signup />} />
+                </Routes>
+              </>
+            ) : (
+              <Login />
+            )}
           </div>{" "}
           <Footer />
         </Store>
