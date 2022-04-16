@@ -79,12 +79,7 @@ function User() {
                   <a href="#myParties">My Parties</a>
                   {listParties}
                 </li>
-                <li className="item">
-                  <a href="#recentParties">Recent Parties</a>
-                </li>
-                <li className="item">
-                  <a href="#friends">My Friends</a>
-                </li>
+
                 <li className="item">
                   <a href="#logout" onClick={Auth.logout}>
                     Logout

@@ -45,6 +45,7 @@ export const QUERY_PARTIES = gql`
 export const QUERY_PARTY = gql`
   query party($id: ID!) {
     party(_id: $id) {
+      name
       rules {
         name
       }

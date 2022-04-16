@@ -19,11 +19,14 @@ function Party() {
   if (loading) return "Loading";
   // if (error) return `${error.message}`;
 
-  //   console.log(data.party.rules);
+  console.log(data?.party);
 
   const ruleList = data?.party.rules || [];
+  const partyName = data?.party.name;
 
-  const listRules = ruleList.map((rule) => <button>{rule.name}</button>);
+  const listRules = ruleList.map((rule) => (
+    <button className="triggerBtn">{rule.name}</button>
+  ));
 
   if (Context.new === true) {
     return null;
@@ -34,7 +37,7 @@ function Party() {
         <>
           <div className="container " id="liveParty">
             <div>
-              <h2>{data?.party.name}</h2>
+              <h3 className="info">{partyName}</h3>
               <p>
                 {" "}
                 If any of these events below happen, you will be alerted to take
@@ -44,13 +47,9 @@ function Party() {
 
             <div className="container">
               <div className="row justify-content-col-md-center">
-                {rules.map((rule) => (
-                  <div className="rules partyTrigger col col-md-auto">
-                    <button className="triggerBtn" onClick={alert}>
-                      <h1 className="ruleCard partyTrigger">{listRules}</h1>
-                    </button>
-                  </div>
-                ))}
+                <div className="rules partyTrigger col col-md-auto">
+                  <h1 className="ruleCard partyTrigger">{listRules}</h1>
+                </div>
               </div>
             </div>
           </div>
